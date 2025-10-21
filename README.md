@@ -18,7 +18,7 @@ MFDS 2025 T5
 
 | Recurso | Link |
 |----------|------|
-| <img src="https://cdn.brandfetch.io/id6O2oGzv-/theme/dark/idncaAgFGT.svg" width="20" alt="Google Docs"> **Documento SRS** | [Abrir Documento](https://docs.google.com/document/d/1F0Kc1uC0PTF9bE_5LUp5oseBzetKzA5Y/edit?usp=sharing&ouid=104528949200953845355&rtpof=true&sd=true) |
-| <img src="https://cdn.brandfetch.io/id6O2oGzv-/theme/dark/idncaAgFGT.svg" width="20" alt="Google Drive"> **Carpeta del proyecto** | [Abrir Carpeta](https://drive.google.com/drive/folders/1TFsNvk2eh7_xsiUAL1IcBSTbA43Rt_Yy?usp=sharing) |
-| <img src="https://cdn.brandfetch.io/idU6lzwMYA/theme/light/symbol.svg" width="20" alt="ClickUp"> **Cronograma de actividades** | [Ver Cronograma](https://app.clickup.com/9017329372/v/s/90171702098) |
-| <img src="https://cdn.brandfetch.io/idZHcZ_i7F/theme/light/symbol.svg" width="18" alt="Figma"> **Prototipo del proyecto** | [Ver Prototipo](https://www.figma.com/design/1c5KokvlbcDZO1yqxMSWGA/Prototipo?node-id=0-1&t=TthwW7l2FZSof3Qr-1) |
+|  **Documento SRS** | [Abrir Documento](https://docs.google.com/document/d/1F0Kc1uC0PTF9bE_5LUp5oseBzetKzA5Y/edit?usp=sharing&ouid=104528949200953845355&rtpof=true&sd=true) |
+|  **Carpeta del proyecto** | [Abrir Carpeta](https://drive.google.com/drive/folders/1TFsNvk2eh7_xsiUAL1IcBSTbA43Rt_Yy?usp=sharing) |
+|  **Cronograma de actividades** | [Ver Cronograma](https://app.clickup.com/9017329372/v/s/90171702098) |
+|  **Prototipo del proyecto** | [Ver Prototipo](https://www.figma.com/design/1c5KokvlbcDZO1yqxMSWGA/Prototipo?node-id=0-1&t=TthwW7l2FZSof3Qr-1) |
