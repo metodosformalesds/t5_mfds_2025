@@ -25,6 +25,7 @@ urlpatterns = [
     path("api/", include('core.urls')),  # API de autenticación
     path("api/", include('products.urls')),
     path("api/payments/", include('payments.urls')),
+    path("api/", include('exchanges.urls')),
 ]
 
 # Servir archivos media en desarrollo
