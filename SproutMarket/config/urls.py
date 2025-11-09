@@ -26,6 +26,7 @@ urlpatterns = [
     path("api/", include('products.urls')),
     path("api/payments/", include('payments.urls')),
     path("api/", include('exchanges.urls')),
+    path('api/notifications/', include('notifications.urls')),
 ]
 
 # Servir archivos media en desarrollo

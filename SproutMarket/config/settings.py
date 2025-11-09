@@ -217,9 +217,12 @@ CORS_ALLOWED_ORIGINS = [
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='noreply@sproutmarket.com')
 
+# AWS SES Configuration
+AWS_SES_REGION = config('AWS_SES_REGION', default='us-east-2')  # ← Cambiar default a us-east-2
+
 if EMAIL_BACKEND == 'django_ses.SESBackend':
     # AWS SES (usar después del Día 7)
-    AWS_SES_REGION_NAME = config('AWS_SES_REGION', default='us-east-1')
+    AWS_SES_REGION_NAME = AWS_SES_REGION  # ← Usar la variable ya definida
     AWS_SES_REGION_ENDPOINT = f'email.{AWS_SES_REGION_NAME}.amazonaws.com'
 
 # Stripe Configuration
@@ -230,7 +233,7 @@ STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET', default='')
 # AWS Cognito (configurar después del Día 2)
 COGNITO_USER_POOL_ID = config('COGNITO_USER_POOL_ID', default='')
 COGNITO_APP_CLIENT_ID = config('COGNITO_APP_CLIENT_ID', default='')
-COGNITO_REGION = config('COGNITO_REGION', default='us-east-1')
+COGNITO_REGION = config('COGNITO_REGION', default='us-east-2')  # ← Cambiar a us-east-2
 
 # AWS SNS (configurar después del Día 7)
 SNS_TOPIC_ARN = config('SNS_TOPIC_ARN', default='')
