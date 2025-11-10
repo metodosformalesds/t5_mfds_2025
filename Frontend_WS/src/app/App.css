@@ -1,0 +1,37 @@
+.card-twitter{
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: .8 rem;
+  justify-content: space-between;
+}
+
+.card-header{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-twitter-info{
+  display: flex;
+  flex-direction: column;
+}
+
+.card-twitter-infoUsername{
+  opacity: .6;
+}
+
+.card-twitter-img{
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.card-twitter-button{
+  margin-left: 16px;
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-weight: bold;
+}
