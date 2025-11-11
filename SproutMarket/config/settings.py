@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'payments',
     'notifications',
     'analytics',
+    'subscriptions',  
 ]
 
 MIDDLEWARE = [
@@ -229,6 +230,7 @@ if EMAIL_BACKEND == 'django_ses.SESBackend':
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY', default='')
 STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY', default='')
 STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET', default='')
+STRIPE_PREMIUM_PRICE_ID = config('STRIPE_PREMIUM_PRICE_ID')
 
 # AWS Cognito (configurar después del Día 2)
 COGNITO_USER_POOL_ID = config('COGNITO_USER_POOL_ID', default='')
