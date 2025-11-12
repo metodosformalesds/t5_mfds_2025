@@ -9,8 +9,6 @@ MFDS 2025 T5
 - 223191 | Alex Beltrán Gallegos  
 - 214717 | Erika Clara Frayre  
 - 215661 | Carlo Emiliano Lara Mejía  
-- 214801 | Jesús Emiliano Núñez Vázquez  
-- 180257 | Jesús Francisco Barrón Huitrón  
 
 ---
 
