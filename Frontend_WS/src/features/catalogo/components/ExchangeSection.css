@@ -1,0 +1,55 @@
+.exchange-section {
+  display: flex;
+  align-items: center;          /* centra verticalmente */
+  justify-content: center;      /* centra horizontalmente */
+  padding: 3rem 2rem;
+  background-color: #E8EDDE;
+  border-radius: 1rem;
+  margin: 3rem auto;            /* centra el bloque en el ancho total */
+  flex-wrap: wrap;
+  max-width: 1000px;            /* limita el ancho para que no se extienda demasiado */
+  text-align: center;           /* centra el texto internamente */
+}
+.exchange-content {
+  flex: 1 1 400px;
+  padding-right: 2rem;
+  
+}
+
+.exchange-content h2 {
+  font-size: 1.8rem;
+  color: #1f513b;
+  margin-bottom: 0.5rem;
+}
+
+.exchange-content p {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.exchange-button {
+  background-color: #228b22;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.exchange-button:hover {
+  background-color: #1c741c;
+}
+
+.exchange-image-container {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.exchange-image {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 1rem;
+  object-fit: cover;
+}
