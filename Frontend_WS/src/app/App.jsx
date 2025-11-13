@@ -1,35 +1,19 @@
-import './App.css'
-import { CardEjemplo } from '../features/Card-ejemplo.jsx'
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Home from "../features/Home";
+import Login from "../features/Login";
+import Register from "../features/Register";
+import VerifyEmail from "../features/VerifyEmail";
 
-
-export function App() {
-  return(
-    <section className='App'>
-      <CardEjemplo 
-      username="@usuarioejemplo" 
-      name="Pablo Hernandez" 
-      isFollowing={true} 
-      />
-
-      <CardEjemplo 
-      username="@EibramAlvarado" 
-      name="Alexis Alvarado" 
-      isFollowing={false} 
-      />
-
-      <CardEjemplo 
-      username="@ErnestoMijares" 
-      name="Ernesto" 
-      isFollowing={false} 
-      />
-    </section>
-  )
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />              {/* Página principal */}
+        <Route path="/login" element={<Login />} />        {/* Iniciar sesión */}
+        <Route path="/register" element={<Register />} />  {/* Registro */}
+        <Route path="/verify-email" element={<VerifyEmail />} /> {/* Verificación */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
+  );
 }
-
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-
-
-export default App
