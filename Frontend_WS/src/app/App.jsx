@@ -1,14 +1,18 @@
-import Navbar from "../features/components/Navbar";
-import Home from "../features/pages/Home";
-import "../shared/styles/index.css";
+import React from "react";
+import Navbar from "../Shared/components/Navbar";
+import Footer from "../Shared/components/Footer";
+import HomePage from "../features/catalogo/pages/HomePage";
+import "../Shared/styles/global.css";
 
-function App() {
+export default function App() {
   return (
-    <div className="font-sans bg-gray-50 min-h-screen">
+    <>
       <Navbar />
-      <Home />
-    </div>
+      <HomePage />
+      <Footer />
+    </>
   );
 }
 
-export default App;
+
+

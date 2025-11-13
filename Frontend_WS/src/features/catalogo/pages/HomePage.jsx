@@ -68,14 +68,14 @@ export default function HomePage() {
         >
           <div className="hero-content">
             <h1 className="hero-title">
-              Cultiva conexiones,<br /> intercambia vida
+              Cultivate connections,<br /> exchange life
             </h1>
             <p className="hero-subtitle">
-              Explora plantas, macetas y artículos sostenibles compartidos por tu comunidad.
+              Explore plants, pots, and sustainable items share by your community.
             </p>
             <div className="hero-button-container">
               <a href="/register" className="hero-button">
-                ¡Únete ahora!
+                Sign up
               </a>
             </div>
           </div>
@@ -84,8 +84,8 @@ export default function HomePage() {
         {/* Categorías */}
         <section className="categories-section">
           <div className="category-header">
-            <h2 className="category-title">Categorías destacadas</h2>
-            <a href="/catalogo" className="category-link">Ver todos →</a>
+            <h2 className="category-title">Shop by Category</h2>
+            <a href="/catalogo" className="category-link">Shop All →</a>
           </div>
           <div className="grid-container">
             {featuredCategories.map((cat, i) => (
@@ -97,8 +97,8 @@ export default function HomePage() {
         {/* Productos */}
         <section className="products-section">
           <div className="product-header">
-            <h2 className="product-title">Productos más populares</h2>
-            <a href="/catalogo" className="product-link">Ver todos →</a>
+            <h2 className="product-title">Best selling</h2>
+            <a href="/catalogo" className="product-link">Shop All →</a>
           </div>
           <div className="grid-container">
             {featuredProducts.map((prod, i) => (
@@ -110,8 +110,8 @@ export default function HomePage() {
         {/* Viveros */}
         <section className="nursery-section">
           <div className="nursery-header">
-            <h2 className="nursery-title">Viveros destacados</h2>
-            <a href="#" className="nursery-link">Ver todos →</a>
+            <h2 className="nursery-title">Nursery featured </h2>
+            <a href="#" className="nursery-link">Shop All →</a>
           </div>
 
           <div className="nursery-list">
@@ -125,8 +125,7 @@ export default function HomePage() {
         <ExchangeSection />
       </div>
 
-      {/* Footer */}
-      <Footer />
+      
     </>
   );
 }

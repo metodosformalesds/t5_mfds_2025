@@ -6,12 +6,11 @@ export default function ExchangeSection() {
   return (
     <section className="exchange-section">
       <div className="exchange-content">
-        <h2>Intercambia plantas con tu comunidad </h2>
+        <h2>Swap Plants with Your Community </h2>
         <p>
-          Comparte tus plantas, macetas o accesorios y encuentra nuevas especies para tu hogar.
-        </p>
+        Share your plants, pots, or accessories and discover new species for your home.</p>
         <a href="/exchange" className="exchange-button">
-          Explorar intercambios
+          Explore Exchanges
         </a>
       </div>
       <div className="exchange-image-container">
