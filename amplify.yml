@@ -7,10 +7,9 @@ frontend:
         - npm install
     build:
       commands:
-        - cd Frontend_WS
         - npm run build
   artifacts:
-    baseDirectory: Frontend_WS/dist
+    baseDirectory: Frontend_WS/build
     files:
       - '**/*'
   cache:
