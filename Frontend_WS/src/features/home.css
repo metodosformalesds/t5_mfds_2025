@@ -1,0 +1,283 @@
+/* === GENERAL === */
+body {
+  background: #f9fdf8;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1a3c1a;
+  margin: 0;
+}
+
+.home-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* === NAVBAR === */
+.navbar {
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #1a3c1a;
+}
+
+.nav-logo span {
+  color: #3ca35c;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  color: #2b502b;
+}
+
+.nav-links li {
+  cursor: pointer;
+  font-weight: 500;
+}
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-right: 40px; /* 🔹 Empuja los íconos un poco hacia adentro */
+}
+
+.navbar__button {
+  background-color: #166534;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.navbar__button:hover {
+  background-color: #14532d;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  color: #1b4332;
+  cursor: pointer;
+  transition: color 0.3s;
+  padding-left: 10%;
+  
+}
+
+.icon:hover {
+  color: #166534;
+}
+
+
+
+
+/* === HERO === */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 6rem;
+  background: #edf7ef;
+}
+
+.hero-text {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.hero-text h1 {
+  font-size: 2.3rem;
+  line-height: 1.2;
+}
+
+.hero-text .highlight {
+  color: #3ca35c;
+}
+
+.hero-text p {
+  margin-top: 1rem;
+  color: #4b604b;
+  max-width: 500px;
+}
+
+.btn-primary {
+  margin-top: 1.5rem;
+  background: #2b7a2b;
+  border: none;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background: #256326;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-placeholder {
+  background: #f4faf5;
+  border: 2px dashed #3ca35c;
+  border-radius: 10px;
+  height: 250px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+}
+
+/* === CATEGORY SECTION === */
+.shop-category {
+  padding: 4rem 6rem;
+}
+
+.shop-category h2 span {
+  color: #3ca35c;
+}
+
+.categories-grid {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.category-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  width: 120px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+}
+
+.category-image {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* === FEATURED === */
+.nursery-featured {
+  padding: 4rem 6rem;
+  background: #f6fdf8;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-header h2 span {
+  color: #3ca35c;
+}
+
+.view-all {
+  color: #2b7a2b;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.products-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.product-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 180px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+}
+
+.product-image {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  color: #3ca35c;
+  font-weight: 600;
+}
+exchange-section {
+  display: flex;
+  align-items: center;          /* centra verticalmente */
+  justify-content: center;      /* centra horizontalmente */
+  padding: 3rem 2rem;
+  background-color: #E8EDDE;
+  border-radius: 1rem;
+  margin: 3rem auto;            /* centra el bloque en el ancho total */
+  flex-wrap: wrap;
+  max-width: 1000px;            /* limita el ancho para que no se extienda demasiado */
+  text-align: center;   
+         /* centra el texto internamente */
+}
+.exchange-content {
+  height: 200px;
+  flex: 1 1 400px;
+  padding-right: 2rem;
+  background-color: rgb(240, 248, 239); 
+  
+}
+
+.exchange-content h2 {
+  font-size: 1.8rem;
+  color: #1f513b;
+  margin-bottom: 0.5rem;
+  padding-left: 6rem;
+}
+
+.exchange-content p {
+  color: #555;
+  margin-bottom: 3cqb;
+   padding-left: 6rem;
+}
+
+.exchange-button {
+  background-color: #228b22;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s;
+  margin-top: 3rem;
+  margin-left: 6rem;
+}
+
+.exchange-button:hover {
+  background-color: #1c741c;
+}
+
