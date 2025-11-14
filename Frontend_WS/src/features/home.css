@@ -1,6 +1,6 @@
 /* === GENERAL === */
 body {
-  background: #f9fdf8;
+  background: #f8faf8;
   font-family: 'Inter', system-ui, sans-serif;
   color: #1a3c1a;
   margin: 0;
@@ -8,87 +8,22 @@ body {
 
 .home-container {
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   overflow-x: hidden;
-}
 
-/* === NAVBAR === */
-.navbar {
-  
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 3rem;
-  background: white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.nav-logo {
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: #1a3c1a;
-}
-
-.nav-logo span {
-  color: #3ca35c;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  color: #2b502b;
-}
-
-.nav-links li {
-  cursor: pointer;
-  font-weight: 500;
-}
-.navbar__actions {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-right: 40px; /* 🔹 Empuja los íconos un poco hacia adentro */
-}
-
-.navbar__button {
-  background-color: #166534;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
-.navbar__button:hover {
-  background-color: #14532d;
-}
-
-.icon {
-  width: 50px;
-  height: 50px;
-  color: #1b4332;
-  cursor: pointer;
-  transition: color 0.3s;
-  padding-left: 10%;
-  
-}
-
-.icon:hover {
-  color: #166534;
 }
 
 
-
-
-/* === HERO === */
+/* === HERO SECTION === */
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #e8f5e4;
   padding: 4rem 6rem;
-  background: #edf7ef;
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 3rem;
 }
 
 .hero-text {
@@ -232,17 +167,13 @@ body {
   font-weight: 600;
 }
 exchange-section {
+  background: #eaf3e1;
+  padding: 2.5rem 6rem;
+  border-radius: 16px;
+  margin: 3rem 0;
   display: flex;
-  align-items: center;          /* centra verticalmente */
-  justify-content: center;      /* centra horizontalmente */
-  padding: 3rem 2rem;
-  background-color: #E8EDDE;
-  border-radius: 1rem;
-  margin: 3rem auto;            /* centra el bloque en el ancho total */
-  flex-wrap: wrap;
-  max-width: 1000px;            /* limita el ancho para que no se extienda demasiado */
-  text-align: center;   
-         /* centra el texto internamente */
+  align-items: center;
+  gap: 2rem;
 }
 .exchange-content {
   height: 200px;

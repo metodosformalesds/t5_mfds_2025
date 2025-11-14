@@ -1,67 +1,166 @@
+
 import { useEffect, useState } from "react";
 import api from "../api/client";
-import "./Shop.css"; // crea este archivo para los estilos
-import { useNavigate } from "react-router-dom";
-import { ShoppingCart, User } from "lucide-react";
+import "./Shop.css";
+import { ChevronDown } from "lucide-react";
+import Navbars from "./Navbar";
 
 export default function Shop() {
-  const navigate = useNavigate();
-  const [products, setProducts] = useState([]);
 
-  // Obtener todos los productos
+  const [products, setProducts] = useState([]);
+  const [total, setTotal] = useState(0);
+    
+  // Filtros
+  const [filters, setFilters] = useState({
+    seller__username: "",
+    seller__city: "",
+    seller__is_premium: "",
+    in_stock: "",
+    common_name: "",
+    status: "",
+  });
+
   useEffect(() => {
-    api.get("/products/")
-      .then(res => setProducts(res.data))
-      .catch(() => setProducts([]));
-  }, []);
+    loadProducts();
+  }, [filters]);
+
+  const loadProducts = async () => {
+    try {
+      const response = await api.get("/products/", {
+        params: filters,
+      });
+      setProducts(response.data.results || response.data);
+      setTotal(response.data.count || response.data.length);
+    } catch (error) {
+      console.error("Error cargando productos:", error);
+    }
+  };
+
+  const updateFilter = (key, value) => {
+    setFilters((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
 
   return (
-    <div className="shop-container">
-      {/* --- NAVBAR --- */}
-      <nav className="navbar">
-        <div className="nav-logo" onClick={() => navigate("/")}>
-          🌱 <span>Sprout</span> Market
-        </div>
+    <div className="shop-page">
+ <Navbars /> 
+      {/* 
+      HEADER DE LA PÁGINA
+    */}
+      <header className="shop-header">
+        <h1>Shop</h1>
+        <p>Find the perfect plant for your space</p>
+      </header>
 
-        <ul className="nav-links">
-          <li onClick={() => navigate("/")}>Home</li>
-          <li className="active">Shop</li>
-          <li>Category</li>
-          <li>Nursery</li>
-          <li>Exchange</li>
-        </ul>
+      {/* =
+                LAYOUT PRINCIPAL
+      */}
+      <div className="shop-layout">
 
-        <div className="navbar__actions">
-          <button
-            type="button"
-            className="btn-publish"
-            onClick={() => navigate("/publish")}
-          >
-            Publish
-          </button>
-          <ShoppingCart className="icon" />
-          <User className="icon" onClick={() => navigate("/login")} />
-        </div>
-      </nav>
+        {/* SIDEBAR  */}
+        <aside className="shop-sidebar">
 
-      {/* --- SHOP CONTENT --- */}
-      <section className="shop-products">
-        <h2>All <span>Products</span></h2>
+          <h3>Filters</h3>
 
-        <div className="products-grid">
-          {products.length > 0 ? (
-            products.map((prod) => (
-              <div key={prod.id} className="product-card">
-                <div className="product-image">🌿</div>
-                <h4>{prod.common_name}</h4>
-                <p className="price">${prod.price_mxn}</p>
-              </div>
-            ))
-          ) : (
-            <p>No products available</p>
-          )}
-        </div>
-      </section>
+          <div className="filter-box">
+            <label>Search by name</label>
+            <input
+              type="text"
+              placeholder="Common name"
+              onChange={(e) => updateFilter("common_name", e.target.value)}
+            />
+          </div>
+
+          <div className="filter-box">
+            <label>Seller username</label>
+            <input
+              type="text"
+              placeholder="seller123"
+              onChange={(e) => updateFilter("seller__username", e.target.value)}
+            />
+          </div>
+
+          <div className="filter-box">
+            <label>Seller city</label>
+            <input
+              type="text"
+              placeholder="City"
+              onChange={(e) => updateFilter("seller__city", e.target.value)}
+            />
+          </div>
+
+          <div className="filter-box">
+            <label>Premium sellers only</label>
+            <select onChange={(e) => updateFilter("seller__is_premium", e.target.value)}>
+              <option value="">All</option>
+              <option value="true">Premium only</option>
+            </select>
+          </div>
+
+          <div className="filter-box">
+            <label>In stock</label>
+            <select onChange={(e) => updateFilter("in_stock", e.target.value)}>
+              <option value="">All</option>
+              <option value="true">Available only</option>
+            </select>
+          </div>
+
+          <div className="filter-box">
+            <label>Status</label>
+            <select onChange={(e) => updateFilter("status", e.target.value)}>
+              <option value="">All</option>
+              <option value="active">Active</option>
+              <option value="draft">Draft</option>
+            </select>
+          </div>
+
+        </aside>
+
+        {/* PRODUCTOS */}
+        <section className="shop-products">
+          <div className="products-header">
+            <p>Showing {total} products</p>
+
+            <div className="sort-box">
+              <span>Sort by</span>
+              <select>
+                <option value="popular">Popular</option>
+                <option value="price_low">Price: Low to High</option>
+                <option value="price_high">Price: High to Low</option>
+              </select>
+              <ChevronDown />
+            </div>
+          </div>
+
+          <div className="products-grid">
+            {products.map((product) => (
+              <ProductCard key={product.id} item={product} />
+            ))}
+          </div>
+
+        </section>
+      </div>
     </div>
   );
 }
+
+function ProductCard({ item }) {
+  return (
+    <div className="product-card">
+      <img
+        src={item.main_image}
+        alt={item.common_name}
+        className="product-image"
+      />
+
+      <h4>{item.common_name}</h4>
+
+      <p className="price">$ {item.price_mxn}</p>
+
+      <button className="buy-btn">Buy</button>
+    </div>
+  );
+}
+

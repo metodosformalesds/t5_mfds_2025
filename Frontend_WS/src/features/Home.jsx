@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../api/client";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
-import { ShoppingCart, User } from "lucide-react"; 
+import Navbars from "./Navbar";
 
 export default function Home() {
   const navigate = useNavigate(); 
@@ -22,33 +22,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
-
-      {/* --- NAVBAR --- */}
-      <nav className="navbar">
-        <div className="nav-logo">
-          🌱 <span>Sprout</span> Market
-        </div>
-        <ul className="nav-links">
-          <li onClick={() => navigate("/")}>Home</li>
-          <li onClick={() => navigate("/shop")}>Shop</li>
-          <li onClick={() => navigate("/category")}>Category</li>
-          <li onClick={() => navigate("/nursery")}>Nursery</li>
-          <li onClick={() => navigate("/exchange")}>Exchange</li>
-       
-        </ul>
-        <div className="navbar__actions">
-          <button
-            type="button"
-            className="btn-publish"
-            onClick={() => navigate("/publish")}
-          >
-            Publish
-          </button>
-          <ShoppingCart className="icon" />
-          <User className="icon" onClick={() => navigate("/login")} />
-        </div>
-      </nav>
-      
+      <Navbars /> 
 
       {/* --- HERO --- */}
       <section className="hero">
@@ -127,13 +101,8 @@ export default function Home() {
             </div>
           ))}
         </div>
-      
      
     </section>
-
-    
-      
-
     </div>
   );
 }
