@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api/client";
-import "./Home.css";
+import "./home.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
