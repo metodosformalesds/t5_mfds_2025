@@ -1,0 +1,27 @@
+.userperfil{
+    display: flex;
+    flex-direction: column;
+}
+.userprofilein{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.userperfil .userprofilein .left{
+    width: 20%;
+    /* background-color: aqua; */
+    border: 1px solid black;
+    border-radius: 5px;
+    min-height: 50vh;
+}
+
+.userperfil .userprofilein .right{
+    width: 60%;
+    /* background-color: aqua; */
+    border: 1px solid black;
+    border-radius: 5px;
+    min-height: 50vh;
+}

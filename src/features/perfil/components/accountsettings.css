@@ -1,0 +1,62 @@
+.mainbutton1{
+    background: none;
+    border: 1px solid black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 1rem;
+    cursor: pointer;
+    color: blue;
+}
+
+.mainbutton1:hover{
+    background-color: lightgray;
+    color: darkblue;
+    transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
+}
+
+.accountsettings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+} 
+
+.accountsettings h1{
+    padding: 10px 20px;
+}
+
+.accountsettings .form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.accountsettings .form .form-group{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin-bottom: 20px;
+}
+
+.accountsettings .form .form-group label{
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.accountsettings .form .form-group input{
+    padding: 10px 20px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px; 
+}   
+
+.accountsettings .form .form-group input:focus{
+    border: 1.2px solid blue;
+}
