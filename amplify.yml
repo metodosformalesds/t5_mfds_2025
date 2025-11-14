@@ -4,12 +4,12 @@ frontend:
     preBuild:
       commands:
         - cd Frontend_WS
-        - npm install
+        - npm ci
     build:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: Frontend_WS/build
+    baseDirectory: Frontend_WS/dist
     files:
       - '**/*'
   cache:
