@@ -1,0 +1,92 @@
+
+/* === NAVBAR STICKY === */
+.navbar {
+    
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background-color: #fefefe;
+  height: 80px;
+  
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 2rem;
+  border-bottom: 4px solid #979d99; /* línea morada */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* === LOGO === */
+.nav-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-logo span {
+  color: #2B7A2B; /* verde oscuro */
+}
+
+/* === LINKS === */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.nav-links li {
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  transition: color 0.2s ease;
+}
+
+.nav-links li:hover {
+  color: #3CA35C;
+}
+
+/* === ACTION BUTTONS === */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-publish {
+  background-color: #5a975a;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-publish:hover {
+  background-color: #226422;
+}
+
+/* === ICONS === */
+.icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.icon:hover {
+  opacity: 0.6;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none; /* luego podemos hacer el menú hamburguesa */
+  }
+}
