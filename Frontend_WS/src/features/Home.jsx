@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import api from "../api/client";
-import "./home.css";
 import { useNavigate } from "react-router-dom";
+import api from "../api/client";
+import "./Home.css";
 
 export default function Home() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
 
@@ -21,28 +21,6 @@ export default function Home() {
 
   return (
     <div className="home-container">
-
-      {/* --- NAVBAR --- */}
-      <nav className="navbar">
-        <div className="nav-logo">
-          🌱 <span>Sprout</span> Market
-        </div>
-        <ul className="nav-links">
-          <li>Home</li>
-          <li>Shop</li>
-          <li>Category</li>
-          <li>Nursery</li>
-          <li>Exchange</li>
-        </ul>
-        <button
-        type="button"
-        className="btn-login"
-        onClick={() => navigate("/Login")} // 👈 redirección
-        >
-          Log In
-        </button>
-      </nav>
-
       {/* --- HERO --- */}
       <section className="hero">
         <div className="hero-text">
@@ -53,7 +31,9 @@ export default function Home() {
             Sprout Market es el espacio donde viveros locales y coleccionistas
             se encuentran para comprar, vender e intercambiar plantas únicas.
           </p>
-          <button className="btn-primary">Regístrate</button>
+          <button className="btn-primary" onClick={() => navigate("/shop")}>
+            Explorar tienda
+          </button>
         </div>
         <div className="hero-image">
           <div className="image-placeholder">🪴</div>
@@ -81,7 +61,7 @@ export default function Home() {
       <section className="nursery-featured">
         <div className="section-header">
           <h2>Nursery <span>featured</span></h2>
-          <a href="#" className="view-all">View all ›</a>
+          <a href="/nursery" className="view-all">View all ›</a>
         </div>
 
         <div className="products-grid">

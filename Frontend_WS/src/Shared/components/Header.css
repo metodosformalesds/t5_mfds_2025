@@ -1,0 +1,274 @@
+/* === HEADER CONTAINER === */
+.header {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* === LOGO === */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.header-logo:hover {
+  opacity: 0.8;
+}
+
+.logo-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.logo-text {
+  font-size: 1.1rem;
+  color: #1a3c1a;
+  font-weight: 400;
+}
+
+.logo-text strong {
+  font-weight: 700;
+}
+
+/* === NAVEGACIÓN === */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  color: #2b502b;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.nav-item:hover {
+  color: #3ca35c;
+}
+
+.nav-item.active {
+  color: #3ca35c;
+}
+
+.nav-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #3ca35c;
+  border-radius: 2px;
+}
+
+/* === ACCIONES === */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Botón Publish */
+.btn-publish {
+  background: #3ca35c;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(60, 163, 92, 0.2);
+}
+
+.btn-publish:hover {
+  background: #339e51;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(60, 163, 92, 0.3);
+}
+
+.btn-publish:active {
+  transform: translateY(0);
+}
+
+/* Botón de Carrito */
+.btn-cart {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.btn-cart:hover {
+  background: #f0f0f0;
+}
+
+/* Badge de contador (opcional) */
+.btn-cart::after {
+  content: "2";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ff4444;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Menú de Usuario */
+.user-menu {
+  position: relative;
+}
+
+.btn-user {
+  background: #f0f0f0;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-user:hover {
+  background: #e0e0e0;
+  transform: scale(1.05);
+}
+
+/* Dropdown del usuario */
+.user-dropdown {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 180px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.user-menu:hover .user-dropdown {
+  display: block;
+}
+
+.user-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  background: white;
+  color: #333;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.user-dropdown button:hover {
+  background: #f5f5f5;
+}
+
+.user-dropdown button:last-child {
+  color: #d32f2f;
+  font-weight: 500;
+}
+
+.user-dropdown button:last-child:hover {
+  background: #ffebee;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 1rem 2rem;
+  }
+
+  .header-nav {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+    padding: 1rem 1.5rem;
+  }
+
+  .header-nav {
+    order: 3;
+    width: 100%;
+    margin-top: 1rem;
+    justify-content: space-around;
+    gap: 1rem;
+  }
+
+  .nav-item {
+    font-size: 0.9rem;
+  }
+
+  .btn-publish {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-nav {
+    gap: 0.5rem;
+  }
+
+  .nav-item {
+    font-size: 0.85rem;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+
+  .btn-cart::after {
+    width: 16px;
+    height: 16px;
+    font-size: 0.65rem;
+  }
+}
