@@ -1,6 +1,7 @@
+
 /* === GENERAL === */
 body {
-  background: #f9fdf8;
+  background: #f8faf8;
   font-family: 'Inter', system-ui, sans-serif;
   color: #1a3c1a;
   margin: 0;
@@ -8,63 +9,22 @@ body {
 
 .home-container {
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   overflow-x: hidden;
+
 }
 
-/* === NAVBAR === */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 3rem;
-  background: white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
 
-.nav-logo {
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: #1a3c1a;
-}
-
-.nav-logo span {
-  color: #3ca35c;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  color: #2b502b;
-}
-
-.nav-links li {
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.btn-login {
-  border: 2px solid #2b7a2b;
-  background: transparent;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  color: #2b7a2b;
-  font-weight: 500;
-}
-
-.btn-login:hover {
-  background: #2b7a2b;
-  color: white;
-}
-
-/* === HERO === */
+/* === HERO SECTION === */
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #e8f5e4;
   padding: 4rem 6rem;
-  background: #edf7ef;
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 3rem;
 }
 
 .hero-text {
@@ -206,4 +166,49 @@ body {
 .price {
   color: #3ca35c;
   font-weight: 600;
+}
+exchange-section {
+  background: #eaf3e1;
+  padding: 2.5rem 6rem;
+  border-radius: 16px;
+  margin: 3rem 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.exchange-content {
+  height: 200px;
+  flex: 1 1 400px;
+  padding-right: 2rem;
+  background-color: rgb(240, 248, 239); 
+  
+}
+
+.exchange-content h2 {
+  font-size: 1.8rem;
+  color: #1f513b;
+  margin-bottom: 0.5rem;
+  padding-left: 6rem;
+}
+
+.exchange-content p {
+  color: #555;
+  margin-bottom: 3cqb;
+   padding-left: 6rem;
+}
+
+.exchange-button {
+  background-color: #228b22;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s;
+  margin-top: 3rem;
+  margin-left: 6rem;
+}
+
+.exchange-button:hover {
+  background-color: #1c741c;
 }

@@ -1,7 +1,9 @@
+
 import { useEffect, useState } from "react";
 import api from "../api/client";
 import "./home.css";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 
 export default function Home() {
   const navigate = useNavigate(); 
@@ -10,38 +12,38 @@ export default function Home() {
 
   // Obtener categorías y productos
   useEffect(() => {
-    api.get("/products/categories/")
-      .then(res => setCategories(res.data))
-      .catch(() => setCategories([]));
+  api.get("/products/categories/")
+    .then(res => {
+      console.log("CATEGORIES RESPONSE:", res.data);
 
-    api.get("/products/")
-      .then(res => setProducts(res.data.slice(0, 6))) // solo primeros 6
-      .catch(() => setProducts([]));
-  }, []);
+      // Forzar siempre array
+      const raw = res.data;
+
+      const list =
+        Array.isArray(raw)
+          ? raw
+          : raw?.results ||
+            raw?.categories ||
+            raw?.data ||
+            [];
+
+      setCategories(list);
+    })
+    .catch(() => setCategories([]));
+
+  api.get("/products/")
+    .then(res => {
+      const raw = res.data;
+      const list = Array.isArray(raw) ? raw : raw?.results || [];
+      setProducts(list.slice(0, 6));
+    })
+    .catch(() => setProducts([]));
+}, []);
 
   return (
     <div className="home-container">
-
-      {/* --- NAVBAR --- */}
-      <nav className="navbar">
-        <div className="nav-logo">
-          🌱 <span>Sprout</span> Market
-        </div>
-        <ul className="nav-links">
-          <li>Home</li>
-          <li>Shop</li>
-          <li>Category</li>
-          <li>Nursery</li>
-          <li>Exchange</li>
-        </ul>
-        <button
-        type="button"
-        className="btn-login"
-        onClick={() => navigate("/Login")} // 👈 redirección
-        >
-          Log In
-        </button>
-      </nav>
+     
+      <Navbar /> 
 
       {/* --- HERO --- */}
       <section className="hero">
@@ -53,7 +55,14 @@ export default function Home() {
             Sprout Market es el espacio donde viveros locales y coleccionistas
             se encuentran para comprar, vender e intercambiar plantas únicas.
           </p>
-          <button className="btn-primary">Regístrate</button>
+          
+          <button
+          type="button"
+          className="btn-primary"
+          onClick={() => navigate("/Register")}
+          >
+            Registrate
+          </button>
         </div>
         <div className="hero-image">
           <div className="image-placeholder">🪴</div>
@@ -94,6 +103,27 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+       <section className="exchange-section">
+      <div className="exchange-content">
+        <h2>Swap Plants with Your Community </h2>
+        <p>
+        Share your plants, pots, or accessories and discover new species for your home.</p>
+        <a href="/exchange" className="exchange-button">
+          Explore Exchanges
+        </a>
+      </div>
+      <div className="products-grid">
+          {products.map(prod => (
+            <div key={prod.id} className="product-card">
+              <div className="product-image">🌿</div>
+              <h4>{prod.common_name}</h4>
+              <p className="price">${prod.price_mxn}</p>
+            </div>
+          ))}
+        </div>
+     
+    </section>
     </div>
   );
 }

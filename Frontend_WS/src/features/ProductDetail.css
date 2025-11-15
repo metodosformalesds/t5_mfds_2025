@@ -1,0 +1,74 @@
+/* ---- Reset y box sizing (útil si falta) ---- */
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+/* ---- Contenedor principal ---- */
+.product-detail-container {
+  max-width: 1200px;    /* ancho máximo */
+  width: 85%;           /* ancho relativo */
+  margin: 0 auto;       /* centra el contenedor horizontalmente */
+  padding: 80px 24px;   /* separa del navbar (arriba) y deja espacio lateral */
+}
+
+/* Si tu navbar es fixed o tiene altura, aumenta padding-top */
+.header-fixed + .product-detail-container,
+.navbar-fixed + .product-detail-container {
+  padding-top: 100px;
+}
+
+/* ---- layout principal ---- */
+.product-detail {
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* imagenes - ocupa menos del 50% para dejar espacio lateral */
+.product-images {
+  width: 52%;
+  min-width: 320px;
+}
+
+/* info del producto al lado derecho */
+.product-info {
+  width: 42%;
+  min-width: 280px;
+}
+
+/* mantén las imágenes dentro del contenedor */
+.main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* grid de mini-imágenes */
+.image-grid { display:flex; gap:12px; margin-top:18px; }
+.image-grid img { width: 32%; height: 96px; object-fit: cover; border-radius: 8px; }
+
+/* títulos y espaciado */
+.product-info h1 { font-size: 30px; margin: 0 0 12px 0; }
+.price { font-size: 20px; margin: 6px 0 18px 0; }
+
+/* separadores y inputs */
+.dimensions { display:flex; gap:18px; margin-top:18px; }
+.dimensions input { width:72px; padding:6px; border-radius:6px; border:1px solid #dcdcdc; }
+
+/* botones y cantidad */
+.quantity-box { display:flex; gap:12px; align-items:center; margin-top:10px; }
+.add-cart-btn { margin-top:20px; padding:12px 18px; border-radius:10px; background:#5A7F6E; color:#fff; border:none; }
+
+/* recomendaciones */
+.recommended-section { margin-top:70px; }
+.recommended-grid { display:flex; gap:20px; }
+
+/* ---- Responsivo (móviles) ---- */
+@media (max-width: 900px) {
+  .product-detail { flex-direction: column; gap:20px; }
+  .product-images, .product-info { width: 100%; }
+  .image-grid img { height:80px; }
+  .product-detail-container { padding-top: 30px; width: 92%; }
+}
