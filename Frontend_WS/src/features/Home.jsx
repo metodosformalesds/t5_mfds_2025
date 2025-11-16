@@ -1,83 +1,78 @@
-
 import { useEffect, useState } from "react";
 import api from "../api/client";
 import "./home.css";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
 
 export default function Home() {
   const navigate = useNavigate(); 
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
 
-  // Obtener categorías y productos
+  // Cargar categorías y productos
   useEffect(() => {
-  api.get("/categories/")
-    .then(res => {
-      console.log("CATEGORIES RESPONSE:", res.data);
-
-      // Forzar siempre array
-      const raw = res.data;
-
-      const list =
-        Array.isArray(raw)
+    api.get("/categories/")
+      .then(res => {
+        const raw = res.data;
+        const list = Array.isArray(raw)
           ? raw
-          : raw?.results ||
-            raw?.categories ||
-            raw?.data ||
-            [];
+          : raw?.results || raw?.categories || raw?.data || [];
+        setCategories(list);
+      })
+      .catch(() => setCategories([]));
 
-      setCategories(list);
-    })
-    .catch(() => setCategories([]));
+    api.get("/products/")
+      .then(res => {
+        const raw = res.data;
+        const list = Array.isArray(raw) ? raw : raw?.results || [];
+        setProducts(list.slice(0, 6)); // Primeros 6 productos
+      })
+      .catch(() => setProducts([]));
+  }, []);
 
-  api.get("/products/")
-    .then(res => {
-      const raw = res.data;
-      const list = Array.isArray(raw) ? raw : raw?.results || [];
-      setProducts(list.slice(0, 6));
-    })
-    .catch(() => setProducts([]));
-}, []);
-const categoryImages = {
-  "Plantas": "/assets/Plantas.jpg",
-  "Semillas": "/assets/semillas.png",
-  "Insumos": "/assets/Insumos.png",
-  "Herramientas y Accesorios": "/assets/Herramientes.png",
-};
+  // Imágenes de cada categoría
+  const categoryImages = {
+    "Plantas": "/assets/Plantas.jpg",
+    "Semillas": "/assets/semillas.png",
+    "Insumos": "/assets/Insumos.png",
+    "Herramientas y Accesorios": "/assets/Herramientes.png",
+  };
 
   return (
     <div className="home-container">
-     
-       
 
-      {/* --- HERO --- */}
-      <section className="hero">
-        <div className="hero-text">
-          <h1>
-            Cultiva <span className="highlight">conexiones</span>, Intercambia <span className="highlight">vida</span>
-          </h1>
-          <p>
-            Sprout Market es el espacio donde viveros locales y coleccionistas
-            se encuentran para comprar, vender e intercambiar plantas únicas.
-          </p>
-          
-          <button
-          type="button"
-          className="btn-primary"
-          onClick={() => navigate("/Register")}
-          >
-            Registrate
-          </button>
-        </div>
-        <div className="hero-image">
-          <div className="image-placeholder">🪴</div>
-        </div>
-      </section>
+      {/* === HERO === */}
+      {!localStorage.getItem("access_token") && (
+        <section className="hero">
+          <div className="hero-text">
+            <h1>
+              Cultiva <span className="highlight">conexiones</span>, Intercambia <span className="highlight">vida</span>
+            </h1>
+            <p>
+              Sprout Market es el espacio donde viveros locales y coleccionistas
+              se encuentran para comprar, vender e intercambiar plantas únicas.
+            </p>
+            
+            <button
+              type="button"
+              className="btn-primary"
+              onClick={() => navigate("/Register")}
+            >
+              Regístrate
+            </button>
+          </div>
 
-      {/* --- SHOP BY CATEGORY --- */}
-      <section className="shop-category">
-        <h2>Shop <span>by Category</span></h2>
+          <div className="hero-image">
+            <div className="image-placeholder">🪴</div>
+          </div>
+        </section>
+      )}
+
+
+
+      {/* === CATEGORÍAS === */}
+      <section className="category-section">
+        <h2 className="section-title">Shop <span>by Category</span></h2>
+
         <div className="categories-grid">
           {categories.length > 0 ? (
             categories.map(cat => (
@@ -88,7 +83,7 @@ const categoryImages = {
                     alt={cat.name}
                   />
                 </div>
-                <p>{cat.name}</p>
+                <p className="category-name">{cat.name}</p>
               </div>
             ))
           ) : (
@@ -97,11 +92,12 @@ const categoryImages = {
         </div>
       </section>
 
-      {/* --- NURSERY FEATURED --- */}
-      <section className="nursery-featured">
+
+      {/* === PRODUCTOS RECIENTES / RECOMENDADOS === */}
+      <section className="products-section">
         <div className="section-header">
-          <h2>Nursery <span>featured</span></h2>
-          <a href="#" className="view-all">View all ›</a>
+          <h2 className="section-title">Featured <span>Products</span></h2>
+          <a href="/shop" className="view-all">View all ›</a>
         </div>
 
         <div className="products-grid">
@@ -110,36 +106,43 @@ const categoryImages = {
               <div className="product-image">
                 <img src={prod.main_image} alt={prod.common_name} />
               </div>
-              <h4>{prod.common_name}</h4>
+
+              <h4 className="product-name">{prod.common_name}</h4>
               <p className="price">${prod.price_mxn}</p>
             </div>
           ))}
         </div>
       </section>
 
-       <section className="exchange-section">
-      <div className="exchange-content">
-        <h2>Swap Plants with Your Community </h2>
-        <p>
-        Share your plants, pots, or accessories and discover new species for your home.</p>
-        <a href="/exchange" className="exchange-button">
-          Explore Exchanges
-        </a>
-      </div>
-      <div className="products-grid">
+
+      {/* === EXCHANGE SECTION === */}
+      <section className="exchange-section">
+        <div className="exchange-content">
+          <h2>Swap Plants with Your Community</h2>
+          <p>
+            Share your plants, pots, or accessories and discover new species 
+            for your home.
+          </p>
+
+          <a href="/exchange" className="exchange-button">
+            Explore Exchanges
+          </a>
+        </div>
+
+        <div className="products-grid">
           {products.map(prod => (
             <div key={prod.id} className="product-card">
               <div className="product-image">
                 <img src={prod.main_image} alt={prod.common_name} />
               </div>
 
-              <h4>{prod.common_name}</h4>
+              <h4 className="product-name">{prod.common_name}</h4>
               <p className="price">${prod.price_mxn}</p>
             </div>
           ))}
         </div>
-     
-    </section>
+      </section>
+
     </div>
   );
 }
