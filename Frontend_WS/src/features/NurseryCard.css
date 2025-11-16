@@ -1,0 +1,47 @@
+/* --- NurseryCard.jsx --- */
+
+.nursery-card {
+  background-color: white; /* bg-white */
+  padding: 2rem; /* p-8 */
+  border-radius: 1.5rem; /* rounded-3xl */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); /* shadow-md */
+  margin-bottom: 2.5rem; /* mb-10 */
+  border: 1px solid var(--color-offwhite); /* border border-offwhite */
+}
+
+.nursery-header {
+  margin-bottom: 1.25rem; /* mb-5 */
+}
+
+.nursery-name {
+  font-size: 1.5rem; /* text-2xl */
+  line-height: 2rem;
+  font-family: var(--font-title); /* font-title */
+  color: var(--color-forest); /* text-forest */
+}
+
+.nursery-location {
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem;
+  color: var(--color-sage); /* text-sage */
+  font-family: var(--font-sans); /* font-sans */
+}
+
+.nursery-description {
+  margin-top: 0.5rem; /* mt-2 */
+  color: var(--color-gray-700); /* text-gray-700 */
+  font-family: var(--font-sans); /* font-sans */
+}
+
+.nursery-product-grid {
+  display: grid; /* grid */
+  grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
+  gap: 1.5rem; /* gap-6 */
+}
+
+/* Media Query para responsividad (sm:grid-cols-3) */
+@media (min-width: 640px) { /* sm */
+  .nursery-product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* sm:grid-cols-3 */
+  }
+}

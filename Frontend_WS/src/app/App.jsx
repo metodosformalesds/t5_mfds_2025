@@ -12,9 +12,9 @@ import Navbar from "../features/Navbar";
 import ProductDetail from "../features/ProductDetail";
 import Publish from "../features/Publish";
 {/*import Category from "../features/Category";
+import ShoppingCar from "../features/ShoppingCar";*/}
 import Nursery from "../features/Nursery";
 import Exchange from "../features/Exchange";
-import ShoppingCar from "../features/ShoppingCar";*/}
 
 
 export default function App() {
@@ -31,10 +31,8 @@ export default function App() {
         <Route path="/verify-email" element={<VerifyEmail />} /> {/* Verificación */}
         <Route path="/publish" element={<Publish />} />
         <Route path="*" element={<Navigate to="/" replace />} />
-        {/* RUTAS EN ESPERA
         <Route path="/nursery" element={<Nursery />} /> 
         <Route path="/exchange" element={<Exchange />} /> 
-        */}
       </Routes>
       <Footer />
     </Router>
