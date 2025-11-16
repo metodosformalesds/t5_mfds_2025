@@ -1,62 +1,240 @@
-.mainbutton1{
-    background: none;
-    border: 1px solid black;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin: 1rem;
-    cursor: pointer;
-    color: blue;
+/* Botón principal */
+.mainbutton1 {
+  background: #0a7e57;
+  border: none;
+  padding: 10px 24px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: white;
+  border-radius: 6px;
 }
 
-.mainbutton1:hover{
-    background-color: lightgray;
-    color: darkblue;
-    transform: scale(1.1);
-    transition: all 0.5s ease-in-out;
+.mainbutton1:hover {
+  background-color: #17825f;
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
 }
 
-.accountsettings{
-    display: flex;
+/* CONTENEDOR GENERAL */
+.accountsettings {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 24px;
+}
+
+/* TARJETA PRINCIPAL */
+.accountsettings-card {
+  width: 100%;
+  max-width: 900px;
+  background: #f9fafb;
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+/* FILAS: LABEL IZQ + CONTENIDO DER */
+.accountsettings-row {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+
+/* Columna texto de sección */
+.settings-label-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.settings-section-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+/* Columna contenido */
+.settings-content-col {
+  width: 100%;
+}
+
+/* -------- FOTO DE PERFIL -------- */
+
+.profile-photo-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.photo-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  object-fit: cover;
+  background: #e5e7eb;
+}
+
+/* Cuadro de upload */
+.upload-box {
+  flex: 1;
+  border-radius: 12px;
+  border: 1px solid #16a34a;
+  background: #ffffff;
+  padding: 18px 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-icon {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.upload-text {
+  margin: 0;
+  font-size: 14px;
+  color: #374151;
+  text-align: center;
+}
+
+.upload-text span {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.upload-subtext {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* -------- GRIDS DE FORMULARIO -------- */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 24px;
+}
+
+/* Cada campo */
+.formgroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formgroup label {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.formgroup input {
+  padding: 10px 12px;
+  outline: none;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: #ffffff;
+}
+
+.formgroup input:focus {
+  border: 1.2px solid #16a34a;
+}
+
+.footer-row {
+  margin-top: 8px;
+}
+
+.footer-row .settings-content-col {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+  .accountsettings {
+    padding: 16px;
+  }
+
+  .accountsettings-card {
+    padding: 18px 16px;
+  }
+
+  .accountsettings-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .settings-label-col {
+    justify-content: flex-start;
+  }
+
+  .settings-section-label {
+    font-size: 13px;
+  }
+
+  .profile-photo-row {
     flex-direction: column;
     align-items: center;
+  }
+
+  .upload-box {
     width: 100%;
-} 
+    align-items: center;
+  }
 
-.accountsettings h1{
-    padding: 10px 20px;
-}
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 
-.accountsettings .form{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .footer-row .settings-content-col {
+    justify-content: stretch;
+  }
+
+  .mainbutton1 {
     width: 100%;
-    padding: 10px 20px;
+    text-align: center;
+  }
 }
 
-.accountsettings .form .form-group{
-    display: flex;
-    flex-direction: column;
-    width: 45%;
-    margin-bottom: 20px;
-}
+@media (max-width: 600px) {
+  .accountsettings {
+    padding: 12px 8px;
+  }
 
-.accountsettings .form .form-group label{
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    font-weight: 300;
-}
+  .accountsettings-card {
+    padding: 14px 12px;
+    border-radius: 10px;
+  }
 
-.accountsettings .form .form-group input{
-    padding: 10px 20px;
-    outline: none;
-    border: 1px solid black;
-    border-radius: 5px; 
-}   
+  .profile-photo {
+    width: 64px;
+    height: 64px;
+  }
 
-.accountsettings .form .form-group input:focus{
-    border: 1.2px solid blue;
+  .upload-text {
+    font-size: 13px;
+  }
+
+  .upload-subtext {
+    font-size: 11px;
+  }
+
+  .formgroup input {
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
 }

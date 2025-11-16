@@ -1,0 +1,75 @@
+.suscripcion-wrapper {
+  text-align: center;
+  padding: 40px 20px;
+  background: #FDFAF4;
+}
+
+.suscripcion-expira {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.suscripcion-subtext {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.suscripcion-stripe {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.suscripcion-card {
+  margin: 40px auto 0;
+  background: #ffffff;
+  width: 380px;
+  padding: 30px 25px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.suscripcion-plan-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.suscripcion-plan-price {
+  margin: 10px 0 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #065f46;
+}
+
+.suscripcion-benefits {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  font-size: 16px;
+  color: #111827;
+  margin-bottom: 30px;
+}
+
+.suscripcion-benefits li {
+  margin-bottom: 10px;
+}
+
+.suscripcion-btn {
+  width: 100%;
+  padding: 12px;
+  background: #065f46;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.suscripcion-btn:hover {
+  background: #047857;
+}

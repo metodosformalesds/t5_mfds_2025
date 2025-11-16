@@ -1,0 +1,139 @@
+/* src/features/products/pages/MyListings.css */
+
+.store-page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.store-card {
+  border-radius: 16px;
+  border: 1px solid #a7cfb2;
+  background: #ffffff;
+  padding: 24px 28px;
+}
+
+/* Header de la tienda */
+
+.store-header {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.store-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.store-info h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.store-info p {
+  margin: 0;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.store-description {
+  margin-top: 8px;
+}
+
+/* Cards en grid de 3 columnas */
+
+.store-products-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Card de producto */
+
+.store-product-card {
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.store-product-image img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.store-product-body {
+  padding: 10px 12px 14px;
+}
+
+/* Título = nombre científico */
+.store-product-body h3 {
+  font-size: 14px;
+  margin: 0 0 2px;
+}
+
+/* Subtítulo = common name */
+.store-product-subtitle {
+  margin: 0 0 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Precio */
+.store-product-price {
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+
+/* Botón Ver detalle */
+.store-product-buy {
+  width: 100%;
+  border-radius: 6px;
+  border: none;
+  background: #2f6b4f;
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.store-product-buy:hover {
+  background: #25563f;
+}
+
+/* Botón PUBLISH con fondo verde */
+
+.store-publish-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.store-publish-button {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 8px 26px;
+  border: none;
+  background: #2f6b4f;   /* fondo verde */
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.store-publish-button:hover {
+  background: #25563f;
+}
+
+/* Texto cuando no hay publicaciones */
+
+.store-empty {
+  font-size: 13px;
+  color: #6b7280;
+}

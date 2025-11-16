@@ -19,9 +19,15 @@
     color: antiquewhite;
 }
 
-.usersidebar .s1:hover{
-    background-color: red;
+.usersidebar .s2:hover{
+    background-color: #9BD49F;
     border-radius: 5px;
     cursor: pointer;
-    color: gray;
+    color: black;
+}
+
+.stylenone{
+    text-decoration: none;
+    color: black;
+    border: 1.2px solid black;
 }

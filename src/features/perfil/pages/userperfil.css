@@ -8,20 +8,21 @@
     justify-content: center;
     margin-top: 20px;
     gap: 20px;
+    min-height: 80vh;
 }
 
 .userperfil .userprofilein .left{
     width: 20%;
-    /* background-color: aqua; */
-    border: 1px solid black;
-    border-radius: 5px;
-    min-height: 50vh;
+    background-color: white;
+    height: 35%;
+    padding-top: 15px;
 }
 
 .userperfil .userprofilein .right{
-    width: 60%;
-    /* background-color: aqua; */
+    width: 100%;
+    background-color: #F5F5F5;
     border: 1px solid black;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     min-height: 50vh;
+    padding: 40px;
 }
