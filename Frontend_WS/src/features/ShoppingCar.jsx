@@ -76,7 +76,7 @@ export default function ShoppingCart() {
 if (!cart || !Array.isArray(cart.items) || cart.items.length === 0)
   return (
     <>
-      <Navbar />
+      
       <header className="shop-header">
         <h1>Shopping Car</h1>
         <p>Buy the perfect plant for your space</p>

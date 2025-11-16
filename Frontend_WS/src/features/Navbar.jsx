@@ -1,9 +1,35 @@
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import { ShoppingCart, User } from "lucide-react";
+import { ShoppingCart, User, LogOut } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Verificar token al montar y cuando cambie auth
+  const checkAuth = () => {
+    const token = localStorage.getItem("access_token");
+    setIsLoggedIn(!!token);
+  };
+
+  useEffect(() => {
+    checkAuth(); // Verificar al montar
+
+    // Escuchar cambios de autenticación
+    window.addEventListener("auth-change", checkAuth);
+
+    return () => {
+      window.removeEventListener("auth-change", checkAuth);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    setIsLoggedIn(false);
+    window.dispatchEvent(new Event("auth-change")); // Notificar cambio
+    navigate("/login");
+  };
 
   return (
     <nav className="navbar">
@@ -29,7 +55,12 @@ export default function Navbar() {
         </button>
 
         <ShoppingCart className="icon" onClick={() => navigate("/shoppingcar")} />
-        <User className="icon" onClick={() => navigate("/login")} />
+
+        {!isLoggedIn ? (
+          <User className="icon" onClick={() => navigate("/login")} />
+        ) : (
+          <LogOut className="icon" onClick={handleLogout} />
+        )}
       </div>
     </nav>
   );
