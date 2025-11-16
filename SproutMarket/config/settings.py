@@ -193,8 +193,9 @@ AUTH_USER_MODEL = 'core.User'
 # REST Framework
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        'core.cognito_authentication.CognitoAuthentication',  # ✅ Autenticación principal
+        'rest_framework.authentication.TokenAuthentication',  # Fallback
+        'rest_framework.authentication.SessionAuthentication',  # Para admin
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
