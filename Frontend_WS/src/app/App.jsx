@@ -8,7 +8,7 @@ import VerifyEmail from "../features/VerifyEmail";
 import Footer from "../features/Footer";
 import Shop from "../features/Shop";
 import ShoppingCar from "../features/ShoppingCar";
-import Navbars from "../features/Navbar";
+import Navbar from "../features/Navbar";
 import ProductDetail from "../features/ProductDetail";
 import Publish from "../features/Publish";
 {/*import Category from "../features/Category";
@@ -20,9 +20,9 @@ import ShoppingCar from "../features/ShoppingCar";*/}
 export default function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />              {/* Página principal */}
-       <Route path="/navbar" element={<Navbars />} />
         <Route path="/shop" element={<Shop />} /> 
         <Route path="/shoppingcar" element={<ShoppingCar />}/>
         <Route path="/productdetail" element={<ProductDetail />}/>

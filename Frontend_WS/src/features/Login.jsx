@@ -26,7 +26,9 @@ export default function Login() {
 
       // Simular guardado del token y redirección a home
       localStorage.setItem("access_token", res.data.cognito_tokens.access_token);
+      window.dispatchEvent(new Event("auth-change"));
       setTimeout(() => navigate("/"), 1000);
+
     } catch (err) {
       console.error("Error en login:", err.response?.data || err);
       setMessage(`❌ ${JSON.stringify(err.response?.data) || "Credenciales inválidas"}`);

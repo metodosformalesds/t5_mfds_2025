@@ -66,7 +66,6 @@ export default function Shop() {
 
   return (
     <div className="shop-page">
-     <Navbar /> 
       {/* 
       HEADER DE LA PÁGINA
     */}
