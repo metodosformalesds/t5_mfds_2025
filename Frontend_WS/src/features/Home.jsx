@@ -12,7 +12,7 @@ export default function Home() {
 
   // Obtener categorías y productos
   useEffect(() => {
-  api.get("/products/categories/")
+  api.get("/categories/")
     .then(res => {
       console.log("CATEGORIES RESPONSE:", res.data);
 
@@ -39,6 +39,12 @@ export default function Home() {
     })
     .catch(() => setProducts([]));
 }, []);
+const categoryImages = {
+  "Plantas": "/assets/Plantas.jpg",
+  "Semillas": "/assets/semillas.png",
+  "Insumos": "/assets/Insumos.png",
+  "Herramientas y Accesorios": "/assets/Herramientes.png",
+};
 
   return (
     <div className="home-container">
@@ -76,7 +82,12 @@ export default function Home() {
           {categories.length > 0 ? (
             categories.map(cat => (
               <div key={cat.id} className="category-card">
-                <div className="category-image">🌵</div>
+                <div className="category-image">
+                  <img
+                    src={categoryImages[cat.name] || "/assets/default_cat.png"}
+                    alt={cat.name}
+                  />
+                </div>
                 <p>{cat.name}</p>
               </div>
             ))
