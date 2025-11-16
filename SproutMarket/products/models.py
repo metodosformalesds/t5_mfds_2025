@@ -96,27 +96,28 @@ class Product(models.Model):
     )
     
     # Imágenes (máximo 3)
-    image1 = models.ImageField(
+    image1 = models.URLField(
         _('imagen 1'),
-        upload_to='products/',
+        max_length=500,
         blank=True,
         null=True,
         help_text='Primera imagen del producto (principal)'
     )
-    image2 = models.ImageField(
+    image2 = models.URLField(
         _('imagen 2'),
-        upload_to='products/',
+        max_length=500,
         blank=True,
         null=True,
         help_text='Segunda imagen del producto'
     )
-    image3 = models.ImageField(
+    image3 = models.URLField(
         _('imagen 3'),
-        upload_to='products/',
+        max_length=500,
         blank=True,
         null=True,
         help_text='Tercera imagen del producto'
     )
+
     
     # Estado y métricas
     status = models.CharField(

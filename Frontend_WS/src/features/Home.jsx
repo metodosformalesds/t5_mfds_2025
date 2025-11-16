@@ -96,7 +96,9 @@ export default function Home() {
         <div className="products-grid">
           {products.map(prod => (
             <div key={prod.id} className="product-card">
-              <div className="product-image">🌿</div>
+              <div className="product-image">
+                <img src={prod.main_image} alt={prod.common_name} />
+              </div>
               <h4>{prod.common_name}</h4>
               <p className="price">${prod.price_mxn}</p>
             </div>
@@ -116,7 +118,10 @@ export default function Home() {
       <div className="products-grid">
           {products.map(prod => (
             <div key={prod.id} className="product-card">
-              <div className="product-image">🌿</div>
+              <div className="product-image">
+                <img src={prod.main_image} alt={prod.common_name} />
+              </div>
+
               <h4>{prod.common_name}</h4>
               <p className="price">${prod.price_mxn}</p>
             </div>
