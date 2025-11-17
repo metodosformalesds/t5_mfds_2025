@@ -24,10 +24,8 @@ const Exchange = () => {
       </header>
       <div className="shop-layout">
         <Sidebar />
-        {/* Contenido principal */}
         <div className="exchange-product-area">
           <div className="exchange-header-row">
-            {/* Selector de ordenamiento */}
             <select className="sort-selector">
               <option>Popular</option>
               <option>Low Price</option>
@@ -35,8 +33,6 @@ const Exchange = () => {
               <option>Newest</option>
             </select>
           </div>
-
-          {/* Grid de productos */}
           <div className="product-grid">
             {products.map((p, i) => (
               <ProductCard key={i} {...p} />

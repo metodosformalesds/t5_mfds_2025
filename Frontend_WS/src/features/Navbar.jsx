@@ -14,7 +14,7 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    checkAuth(); // Verificar al montar
+    checkAuth(); 
 
     // Escuchar cambios de autenticación
     window.addEventListener("auth-change", checkAuth);
@@ -48,8 +48,8 @@ export default function Navbar() {
       <div className="navbar__actions">
         <button
           type="button"
-          className="btn-publish"
-          onClick={() => navigate("/publish")}
+          className="btn-publish" 
+          onClick={() => navigate("/productos/publicar")}
         >
           Publish
         </button>
