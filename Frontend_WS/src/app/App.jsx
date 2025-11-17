@@ -11,6 +11,7 @@ import ShoppingCar from "../features/ShoppingCar";
 import Navbar from "../features/Navbar";
 import ProductDetail from "../features/ProductDetail";
 import Publish from "../features/Publish";
+import CategoryPage from '../features/CategoryPage';
 {/*import Category from "../features/Category";
 import Nursery from "../features/Nursery";
 import Exchange from "../features/Exchange";
@@ -22,6 +23,7 @@ export default function App() {
     <Router>
       <Navbar />
       <Routes>
+        <Route path="/category/:categorySlug" element={<CategoryPage />} />
         <Route path="/" element={<Home />} />              {/* Página principal */}
         <Route path="/shop" element={<Shop />} /> 
         <Route path="/shoppingcar" element={<ShoppingCar />}/>

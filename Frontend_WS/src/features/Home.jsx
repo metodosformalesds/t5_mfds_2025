@@ -37,6 +37,21 @@ export default function Home() {
     "Herramientas y Accesorios": "/assets/Herramientes.png",
   };
 
+  // Mapeo de nombres de categorías a slugs para URLs
+  const categorySlugMap = {
+    "Plantas": "plantas",
+    "Semillas": "semillas",
+    "Insumos": "insumos",
+    "Herramientas y Accesorios": "herramientas"
+  };
+
+  const handleCategoryClick = (categoryName) => {
+    const slug = categorySlugMap[categoryName];
+    if (slug) {
+      navigate(`/category/${slug}`);
+    }
+  };
+
   return (
     <div className="home-container">
 
@@ -76,7 +91,11 @@ export default function Home() {
         <div className="categories-grid">
           {categories.length > 0 ? (
             categories.map(cat => (
-              <div key={cat.id} className="category-card">
+              <div 
+                key={cat.id} 
+                className="category-card"
+                onClick={() => handleCategoryClick(cat.name)}
+              >
                 <div className="category-image">
                   <img
                     src={categoryImages[cat.name] || "/assets/default_cat.png"}
