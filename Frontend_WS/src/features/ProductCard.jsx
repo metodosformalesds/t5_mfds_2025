@@ -1,3 +1,15 @@
+/**
+
+ * Autor: Alex Beltran Gallegos
+
+ * Componente: ProductCard 
+
+ * Descripción: Muestra una tarjeta individual de producto con su imagen, nombre, precio y botón de compra.
+
+ */
+
+import './ProductCard.css';
+
 const ProductCard = ({ name, price, image }) => {
   return (
     <div className="product-card">

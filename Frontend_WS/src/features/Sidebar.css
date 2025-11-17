@@ -1,18 +1,26 @@
+/**
+
+ * Autor: Alex Beltran Gallegos
+
+ * Componente: Estilos Sidebar 
+
+ * Descripción: Estilos CSS específicos para la funcionalidad del Sidebar en las vistas Nursery y Exchange
+
+ */
+
 /* --- Sidebar.jsx --- */
 
 .sidebar-container {
   width: 16rem; /* w-64 */
-  background-color: var(--color-offwhite); /* bg-offwhite */
-  border-right: 1px solid var(--color-beige); /* border-r border-beige */
-  padding: 1.5rem; /* p-6 */
-  /* hidden md:block: Se maneja con Media Query */
+  background-color: var(--color-offwhite); 
+  border-right: 1px solid var(--color-beige); 
+  padding: 1.5rem; 
 }
 
-/* Ocultar en móviles, mostrar en md (768px) */
 .sidebar-container {
     display: none;
 }
-@media (min-width: 768px) { /* md:block */
+@media (min-width: 768px) { 
     .sidebar-container {
         display: block;
     }
@@ -20,25 +28,25 @@
 
 
 .sidebar-title {
-  font-size: 1.25rem; /* text-xl */
+  font-size: 1.25rem; 
   line-height: 1.75rem;
-  font-family: var(--font-title); /* font-title */
-  font-weight: 700; /* font-bold */
-  color: var(--color-forest); /* text-forest */
-  margin-bottom: 1rem; /* mb-4 */
+  font-family: var(--font-title); 
+  font-weight: 700; 
+  color: var(--color-forest); 
+  margin-bottom: 1rem; 
 }
 
 .filter-section {
-  margin-bottom: 1.5rem; /* mb-6 */
+  margin-bottom: 1.5rem; 
 }
 
 .filter-subtitle {
-  font-size: 1.125rem; /* text-lg */
+  font-size: 1.125rem; 
   line-height: 1.75rem;
-  font-family: var(--font-sans); /* font-sans */
-  font-weight: 600; /* font-semibold */
-  color: var(--color-gray-800); /* text-gray-800 */
-  margin-bottom: 0.5rem; /* mb-2 */
+  font-family: var(--font-sans); 
+  font-weight: 600; 
+  color: var(--color-gray-800); 
+  margin-bottom: 0.5rem;
 }
 
 .filter-list {
@@ -47,31 +55,36 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; /* space-y-2 */
-  color: var(--color-gray-700); /* text-gray-700 */
+  gap: 0.5rem; 
+  color: var(--color-gray-700); 
 }
 
 .filter-label {
-  display: flex; /* flex */
-  align-items: center; /* items-center */
-  gap: 0.5rem; /* gap-2 */
-  cursor: pointer; /* cursor-pointer */
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+  cursor: pointer; 
 }
 
 .filter-checkbox {
-    accent-color: var(--color-mediumgreen); /* accent-mediumgreen */
+    accent-color: var(--color-mediumgreen); 
 }
 
 .price-range-input {
-  width: 100%; /* w-full */
-  accent-color: var(--color-mediumgreen); /* accent-mediumgreen */
+  width: 100%; 
+  accent-color: var(--color-mediumgreen); 
 }
 
 .price-range-labels {
-  display: flex; /* flex */
-  justify-content: space-between; /* justify-between */
-  font-size: 0.875rem; /* text-sm */
+  display: flex; 
+  justify-content: space-between; 
+  font-size: 0.875rem; 
   line-height: 1.25rem;
-  color: var(--color-gray-600); /* text-gray-600 */
-  margin-top: 0.25rem; /* mt-1 */
+  color: var(--color-gray-600);
+  margin-top: 0.25rem; 
+}
+.sidebar {
+  height: fit-content;
+  position: sticky;
+  top: 20px;
 }

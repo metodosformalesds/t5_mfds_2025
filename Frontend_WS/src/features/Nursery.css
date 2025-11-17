@@ -1,74 +1,78 @@
+/**
+
+ * Autor: Alex Beltran Gallegos
+
+ * Componente: Estilos Nursery
+
+ * Descripción: Estilos CSS específicos para la funcionalidad de la vista Nursery
+
+ */
+
+/* --- ESTILOS NURSERY --- */
+
 .nursery-list-area {
-    flex: 1; /* flex-1 */
+    flex: 1;
 }
 
 .nursery-title {
-    font-size: 2.25rem; /* text-4xl */
+    font-size: 2.25rem;
     line-height: 2.5rem;
-    font-family: var(--font-title); /* font-title */
-    color: var(--color-forest); /* text-forest */
-    margin-bottom: 2.5rem; /* mb-10 */
+    font-family: var(--font-title);
+    color: var(--color-forest);
+    margin-bottom: 2.5rem;
 }
 
-/* --- Navbar.jsx --- */
-
-.navbar-container {
-  background-color: var(--color-offwhite); /* bg-offwhite */
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-  position: sticky; /* sticky */
-  top: 0; /* top-0 */
-  z-index: 10; /* z-10 */
-  border-bottom: 1px solid var(--color-beige); /* border-b border-beige */
+.shop-header {
+  text-align: left;
+  padding: 20px 60px;
+  background: #95cfa8;
 }
 
-.navbar-content {
-  max-width: 80rem; /* max-w-7xl */
-  margin-left: auto; /* mx-auto */
-  margin-right: auto; /* mx-auto */
-  padding-left: 1.5rem; /* px-6 */
-  padding-right: 1.5rem;
-  padding-top: 1rem; /* py-4 */
-  padding-bottom: 1rem;
-  display: flex; /* flex */
-  align-items: center; /* items-center */
-  justify-content: space-between; /* justify-between */
+.shop-header h1 {
+  font-size: 42px;
+  margin-bottom: 5px;
 }
 
-.navbar-logo-group {
-  display: flex; /* flex */
-  align-items: center; /* items-center */
-  gap: 0.75rem; /* gap-3 */
-}
-
-.navbar-logo-img {
-  width: 2.5rem; /* w-10 */
-  height: 2.5rem; /* h-10 */
-  object-fit: contain; /* object-contain */
-}
-
-.navbar-title {
-  font-size: 1.5rem; /* text-2xl */
-  line-height: 2rem;
-  font-family: var(--font-title); /* font-title */
-  font-weight: 800; /* font-extrabold */
-  color: var(--color-forest); /* text-forest */
-}
-
-.navbar-menu {
-  display: flex; /* flex */
-  gap: 1.5rem; /* gap-6 */
-  font-family: var(--font-sans); /* font-sans */
-  color: var(--color-gray-700); /* text-gray-700 */
-  list-style: none; /* Elimina viñetas */
-  padding: 0;
-  margin: 0;
+.shop-layout {
+  display: flex;
+  gap: 40px;
+  padding: 40px 60px;
 }
 
 .menu-item {
-  cursor: pointer; /* cursor-pointer */
-  transition: color 0.15s ease-in-out; /* transition */
+  cursor: pointer;
+  transition: color 0.15s ease-in-out;
 }
 
 .menu-item:hover {
-  color: var(--color-mediumgreen); /* hover:text-mediumgreen */
+  color: var(--color-mediumgreen);
+}
+
+.nursery-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.nursery-product-grid .product-card {
+  max-width: 240px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.nursery-product-grid .product-image {
+  height: 150px !important;
+  object-fit: cover;
+}
+
+.nursery-product-grid .buy-button {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  margin-top: auto;
+}
+.nursery-product-grid .product-card .buy-button {
+  display: block;
+  margin: 0.9rem auto 0;
 }
