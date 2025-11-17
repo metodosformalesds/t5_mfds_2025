@@ -24,7 +24,7 @@ export default function Home() {
       .then(res => {
         const raw = res.data;
         const list = Array.isArray(raw) ? raw : raw?.results || [];
-        setProducts(list.slice(0, 6)); // Primeros 6 productos
+        setProducts(list.slice(0, 4)); // Primeros 6 productos
       })
       .catch(() => setProducts([]));
   }, []);
@@ -149,17 +149,23 @@ export default function Home() {
         </div>
 
         <div className="products-grid">
-          {products.map(prod => (
-            <div key={prod.id} className="product-card">
-              <div className="product-image">
-                <img src={prod.main_image} alt={prod.common_name} />
-              </div>
+          {products.length > 0 && (() => {
+            const randomIndex = Math.floor(Math.random() * products.length);
+            const prod = products[randomIndex];
 
-              <h4 className="product-name">{prod.common_name}</h4>
-              <p className="price">${prod.price_mxn}</p>
-            </div>
-          ))}
+            return (
+              <div key={prod.id} className="product-card">
+                <div className="product-image">
+                  <img src={prod.main_image} alt={prod.common_name} />
+                </div>
+
+                <h4 className="product-name">{prod.common_name}</h4>
+                <p className="price">${prod.price_mxn}</p>
+              </div>
+            );
+          })()}
         </div>
+
       </section>
 
     </div>
