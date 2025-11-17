@@ -21,6 +21,8 @@ import ProductDetailEdit from "../features/ProductDetail-edit.jsx";
 
 import PublishProduct from "../features/PublishProduct.jsx";
 import MyListings from "../features/MyListings.jsx";
+import CategoryPage from '../features/CategoryPage';
+
 
 import { ProductsProvider } from "../features/hooks/useProducts.jsx";
 
@@ -59,6 +61,7 @@ export default function App() {
           <Route path="/productos" element={<ProductsModule />} />
           <Route path="/productos/publicar" element={<PublishProduct />} />
           <Route path="/productos/mis-publicaciones" element={<MyListings />} />
+          <Route path="/category/:categorySlug" element={<CategoryPage />} />
 
           {/* DETALLE / EDICIÓN DE PRODUCTO */}
           <Route
