@@ -59,7 +59,7 @@ export default function Home() {
           <button
           type="button"
           className="btn-primary"
-          onClick={() => navigate("/Register")}
+          onClick={() => navigate("/login")}
           >
             Registrate
           </button>
