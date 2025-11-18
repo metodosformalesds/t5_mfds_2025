@@ -1,4 +1,10 @@
 # payments/views.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 08/11/2025
+Descripción: Vistas del sistema de pagos, integrando Stripe para compras, órdenes, membresías y transacciones.
+"""
+
 from core.models import User
 import stripe
 from decimal import Decimal

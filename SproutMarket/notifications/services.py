@@ -1,4 +1,9 @@
 # notifications/services.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 07/11/2025
+Descripción: Servicios de envío de notificaciones por email (SES) y push (SNS), más lógica unificada.
+"""
 
 import boto3
 from django.conf import settings

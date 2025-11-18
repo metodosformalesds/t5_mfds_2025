@@ -1,4 +1,10 @@
 # test_cognito.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 09/11/2025
+Descripción: Script de prueba para registrar un usuario en AWS Cognito y verificar su sign-up.
+"""
+
 import os
 import django
 

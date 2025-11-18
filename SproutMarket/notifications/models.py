@@ -1,4 +1,9 @@
 # notifications/models.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 07/11/2025
+Descripción: Modelo de notificaciones, incluyendo tipos, estado, envío y metadata.
+"""
 
 from django.db import models
 from django.conf import settings

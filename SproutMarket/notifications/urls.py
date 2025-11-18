@@ -1,4 +1,9 @@
 # notifications/urls.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 07/11/2025
+Descripción: Rutas del módulo de notificaciones, incluyendo ViewSet y endpoints adicionales.
+"""
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter

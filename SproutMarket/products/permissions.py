@@ -1,4 +1,9 @@
 # products/permissions.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 06/11/2025
+Descripción: Permisos personalizados que controlan acceso y edición según el vendedor del producto.
+"""
 
 from rest_framework import permissions
 

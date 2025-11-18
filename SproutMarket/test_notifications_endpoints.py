@@ -1,7 +1,8 @@
 # test_notifications_endpoints.py
 """
-Script para probar todos los endpoints de Notifications
-Ejecutar: python test_notifications_endpoints.py
+Autor: Carlo Lara 215661
+Fecha: 09/11/2025
+Descripción: Script de prueba para todos los endpoints del módulo de notificaciones, incluyendo CRUD, filtros y estadísticas.
 """
 
 import os

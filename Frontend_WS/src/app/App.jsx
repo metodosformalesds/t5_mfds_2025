@@ -1,4 +1,10 @@
 // src/App.jsx
+/**
+ * Autor: Carlo Lara 215661, Eibram, Erika
+ * Componente: App
+ * Descripción: Configura las rutas principales del frontend y envuelve la aplicación completa.
+ */
+
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "../features/Home.jsx";

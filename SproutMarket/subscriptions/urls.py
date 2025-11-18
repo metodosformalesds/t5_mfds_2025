@@ -1,4 +1,9 @@
 # subscriptions/urls.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 06/11/2025
+Descripción: Rutas del módulo de suscripciones, incluyendo webhook de Stripe y endpoints del ViewSet.
+"""
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter

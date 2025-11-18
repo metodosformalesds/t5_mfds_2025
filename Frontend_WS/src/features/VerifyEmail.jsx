@@ -1,3 +1,9 @@
+/**
+ * Autor: Carlo Lara 215661
+ * Componente: VerifyEmail
+ * Descripción: Permite verificar el correo del usuario ingresando el código enviado por Cognito.
+ */
+
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import api from "../api/client";

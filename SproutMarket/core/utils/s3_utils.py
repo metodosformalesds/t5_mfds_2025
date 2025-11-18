@@ -1,4 +1,9 @@
 # core/utils/s3_utils.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 03/11/2025
+Descripción: Utilidades para manejar carga, eliminación y gestión de archivos en Amazon S3.
+"""
 
 import boto3
 import uuid

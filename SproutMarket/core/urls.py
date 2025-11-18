@@ -1,4 +1,9 @@
 # core/urls.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 04/11/2025
+Descripción: Rutas del módulo de autenticación, perfil y recuperación de contraseña.
+"""
 
 from django.urls import path
 from .views import (

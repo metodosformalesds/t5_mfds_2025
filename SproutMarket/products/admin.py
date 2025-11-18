@@ -1,4 +1,9 @@
 # products/admin.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 06/11/2025
+Descripción: Configuración del panel de administración para productos, carritos y órdenes.
+"""
 
 from django.contrib import admin
 from django.utils.html import format_html

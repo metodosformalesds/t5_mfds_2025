@@ -1,4 +1,9 @@
 # exchanges/views.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 05/11/2025
+Descripción: Rutas del módulo de intercambios, incluyendo publicaciones, ofertas y acciones personalizadas.
+"""
 
 import stripe
 from decimal import Decimal

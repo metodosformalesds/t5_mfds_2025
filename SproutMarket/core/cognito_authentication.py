@@ -1,4 +1,9 @@
 # core/cognito_authentication.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 04/11/2025
+Descripción: Sistema de autenticación basado en tokens de AWS Cognito para el backend.
+"""
 
 from rest_framework import authentication, exceptions
 from django.conf import settings

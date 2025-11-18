@@ -1,4 +1,9 @@
 # subscriptions/views.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 06/11/2025
+Descripción: ViewSet para la gestión completa de suscripciones premium, incluyendo creación, cancelación, reactivación y consulta de estado.
+"""
 
 import stripe
 from django.conf import settings

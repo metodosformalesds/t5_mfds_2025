@@ -1,4 +1,9 @@
 # payments/models.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 08/11/2025
+Descripción: Modelos del sistema de pagos, incluyendo transacciones, compras, comisiones, suscripciones y retiros.
+"""
 
 from django.db import models
 from django.conf import settings

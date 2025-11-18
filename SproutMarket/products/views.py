@@ -1,4 +1,9 @@
 # products/views.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 06/11/2025
+Descripción: Vistas del catálogo de productos, manejo de carritos y acciones adicionales del vendedor.
+"""
 
 from rest_framework import viewsets, status, filters, permissions
 from rest_framework.decorators import action

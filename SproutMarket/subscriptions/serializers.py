@@ -1,4 +1,9 @@
 # subscriptions/serializers.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 06/11/2025
+Descripción: Serializadores para creación, cancelación, estado e historial de suscripciones premium.
+"""
 
 from rest_framework import serializers
 from .models import Subscription

@@ -1,4 +1,9 @@
 # products/models.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 06/11/2025
+Descripción: Modelos del sistema de productos, carritos y órdenes, con reglas de negocio y validaciones.
+"""
 
 from django.db import models
 from django.conf import settings

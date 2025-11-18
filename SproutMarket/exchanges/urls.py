@@ -1,4 +1,9 @@
 # exchanges/urls.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 05/11/2025
+Descripción: Rutas del módulo de intercambios, incluyendo publicaciones, ofertas y acciones personalizadas.
+"""
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter

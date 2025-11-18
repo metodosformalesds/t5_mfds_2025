@@ -1,4 +1,9 @@
 # products/filters.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 06/11/2025
+Descripción: Filtros personalizados para búsqueda y filtrado avanzado de productos.
+"""
 
 import django_filters
 from .models import Product

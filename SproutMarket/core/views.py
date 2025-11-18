@@ -1,4 +1,9 @@
 # core/views.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 04/11/2025
+Descripción: Vistas para registro, login, perfil, actualización, verificación y logout.
+"""
 
 from rest_framework import status, generics, permissions
 from rest_framework.response import Response
