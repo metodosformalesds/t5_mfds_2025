@@ -154,14 +154,17 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'username', 'email', 'first_name', 'last_name',
             'phone_number', 'profile_image', 'city', 'state', 'location',
-            'business_name', 'is_premium', 'premium_expires_at',
+            'business_name',
+            'membership_type', 'membership_expires_at', 'membership_is_active',
             'is_email_verified', 'available_balance_mxn', 'product_limit',
             'created_at'
         ]
         read_only_fields = [
-            'id', 'username', 'email', 'is_premium', 'premium_expires_at',
+            'id', 'username', 'email',
+            'membership_type', 'membership_expires_at', 'membership_is_active',
             'is_email_verified', 'available_balance_mxn', 'created_at'
         ]
+
 
 
 class UserProfileUpdateSerializer(serializers.ModelSerializer):

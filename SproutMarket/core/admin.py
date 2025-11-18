@@ -12,10 +12,10 @@ class UserAdmin(BaseUserAdmin):
     
     list_display = [
         'email', 'username', 'first_name', 'last_name', 
-        'is_premium', 'is_email_verified', 'city', 'created_at'
+        'is_email_verified', 'city', 'created_at'
     ]
     list_filter = [
-        'is_premium', 'is_email_verified', 'is_staff', 
+        'is_email_verified', 'is_staff', 
         'is_active', 'city'
     ]
     search_fields = ['email', 'username', 'first_name', 'last_name', 'business_name']
