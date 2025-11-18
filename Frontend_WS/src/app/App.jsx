@@ -11,6 +11,8 @@ import ShoppingCar from "../features/ShoppingCar";
 import Navbar from "../features/Navbar";
 import ProductDetail from "../features/ProductDetail";
 import Publish from "../features/Publish";
+import Terms from "../features/Terms";
+import About from "../features/AboutUS";
 {/*import Category from "../features/Category";
 import Nursery from "../features/Nursery";
 import Exchange from "../features/Exchange";
@@ -30,6 +32,8 @@ export default function App() {
         <Route path="/register" element={<Register />} />  {/* Registro */}
         <Route path="/verify-email" element={<VerifyEmail />} /> {/* Verificación */}
         <Route path="/publish" element={<Publish />} />
+        <Route path="/terms" element={<Terms />} />
+         <Route path="/about" element={<About />} />
         <Route path="*" element={<Navigate to="/" replace />} />
         {/* RUTAS EN ESPERA
         <Route path="/nursery" element={<Nursery />} /> 

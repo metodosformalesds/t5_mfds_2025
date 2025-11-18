@@ -20,8 +20,9 @@ export default function Footer() {
         <ul>
           <li><a href="/shop">Products</a></li>
           <li><a href="#">Returns</a></li>
-          <li><a href="/productdetails">About Us</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="/terms">Terms and Conditions</a></li>
+          <li><a href="/about">About US</a></li>
+         
           
         </ul>
       </div>

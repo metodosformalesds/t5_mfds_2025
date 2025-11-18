@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../api/client";
 import "./Shop.css";
 import { ChevronDown } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
 export default function Shop() {
@@ -180,6 +181,12 @@ function ProductCard({ item }) {
       <p className="price">$ {item.price_mxn}</p>
 
       <button className="buy-btn">Buy</button>
+      <button 
+          className="buy-btns"
+          onClick={() => navigate("/productdetail")}
+        >
+          Buy
+        </button>
     </div>
   );
 }
