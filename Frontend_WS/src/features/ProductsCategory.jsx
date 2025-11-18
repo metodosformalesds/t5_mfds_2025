@@ -76,7 +76,7 @@ export default function ProductsCategory() {
     return (
       <div className="cat-not-found">
         <h2>Categoría no encontrada</h2>
-        <button className="btn-back" onClick={() => navigate("/general-categories")}>
+        <button className="btn-back" onClick={() => navigate("/generalcategory")}>
           Volver
         </button>
       </div>
@@ -86,7 +86,7 @@ export default function ProductsCategory() {
   return (
     <div className="cat-page-container">
       <div className="cat-header">
-        <button className="btn-back" onClick={() => navigate("/general-categories")}>
+        <button className="btn-back" onClick={() => navigate("/generalcategory")}>
           ← Volver
         </button>
 
