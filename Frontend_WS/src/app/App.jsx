@@ -25,6 +25,7 @@ import CategoryPage from '../features/CategoryPage';
 
 import Nursery from "../features/Nursery";
 import Exchange from "../features/Exchange";
+import CreateExchange from "../features/CreateExchange.jsx";  
 
 
 import { ProductsProvider } from "../features/hooks/useProducts.jsx";
@@ -82,6 +83,7 @@ export default function App() {
 
           <Route path="/nursery" element={<Nursery />} /> 
           <Route path="/exchange" element={<Exchange />} /> 
+          <Route path="/create-exchange" element={<CreateExchange />} />
 
           {/* 404 */}
           <Route path="*" element={<Navigate to="/" replace />} />
