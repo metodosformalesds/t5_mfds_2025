@@ -1,3 +1,12 @@
+/**
+
+ * Autor: Erika Clara Frayre
+
+ * Componente: Terms and conditions
+
+ * Descripción: Muestra los terminos y condiciones del negocio
+
+ */
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../api/client";
