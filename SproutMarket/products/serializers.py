@@ -32,26 +32,70 @@ class ProductSellerSerializer(serializers.ModelSerializer):
 
 
 class ProductListSerializer(serializers.ModelSerializer):
-    """Serializer para listado de productos (vista de catálogo)"""
-    
-    seller = ProductSellerSerializer(read_only=True)
-    categories = CategorySerializer(many=True, read_only=True)
     main_image = serializers.SerializerMethodField()
-    
+
     class Meta:
         model = Product
         fields = [
-            'id', 'common_name', 'scientific_name', 'price_mxn',
-            'quantity', 'status', 'main_image', 'seller', 'categories',
-            'view_count', 'created_at'
+            'id',
+            'common_name',
+            'price_mxn',
+            'quantity',
+            'main_image',
         ]
-        read_only_fields = ['id', 'view_count', 'created_at']
-    
+
     def get_main_image(self, obj):
-        """Retorna la primera imagen disponible"""
+        """
+        Siempre devolver una URL válida (string) para evitar que React reciba objetos.
+        Compatible con URLField y con ImageField si vuelves a usarlo en el futuro.
+        """
+        if not obj.image1:
+            return None
+        return str(obj.image1)
+
+
+class ProductDetailSerializer(serializers.ModelSerializer):
+    main_image = serializers.SerializerMethodField()
+    images = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Product
+        fields = [
+            'id',
+            'common_name',
+            'scientific_name',
+            'description',
+            'price_mxn',
+            'quantity',
+            'seller_username',
+            'seller_city',
+            'seller_premium',
+            'status',
+            'main_image',
+            'images',
+        ]
+
+    def get_main_image(self, obj):
+        """
+        Imagen principal segura.
+        """
+        if not obj.image1:
+            return None
+        return str(obj.image1)
+
+    def get_images(self, obj):
+        """
+        Devuelve una lista limpia de URL strings donde existan.
+        """
+        images = []
         if obj.image1:
-            return obj.image1.url if hasattr(obj.image1, 'url') else obj.image1
-        return None
+            images.append(str(obj.image1))
+        if obj.image2:
+            images.append(str(obj.image2))
+        if obj.image3:
+            images.append(str(obj.image3))
+
+        return images
 
 
 class ProductDetailSerializer(serializers.ModelSerializer):

@@ -1,0 +1,79 @@
+/**
+
+ * Autor: Alex Beltran Gallegos
+
+ * Componente: Estilos Exchange
+
+ * Descripción: Estilos CSS específicos para la funcionalidad de la vista Exchange
+
+ */
+
+/* --- ESTILOS EXCHANGE --- */
+
+.exchange-product-area {
+  flex: 1;
+  padding-top: 10px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 10px;
+  justify-items: center;
+}
+
+.exchange-product-area .product-card {
+  width: 320px;
+  max-width: 340px;
+}
+
+.exchange-product-area .product-image {
+  height: 180px;
+  object-fit: cover;
+}
+
+.exchange-product-area .buy-button {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.exchange-header-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 15px;
+  margin-bottom: 15px;
+}
+
+.sort-selector {
+  background: white;
+  border: 1px solid var(--color-offwhite);
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+  color: #2f5936;
+}
+
+.sort-selector:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.exchange-product-area .product-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.exchange-product-area .product-info {
+    text-align: center;
+}
+
+.exchange-product-area .buy-button {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+

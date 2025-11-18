@@ -18,13 +18,15 @@ class User(AbstractUser):
         blank=True,
         help_text='Número de teléfono de contacto'
     )
-    profile_image = models.ImageField(
+    profile_image = models.CharField(
         _('imagen de perfil'),
-        upload_to='profiles/',
+        max_length=500,
         blank=True,
         null=True,
-        help_text='Foto de perfil del usuario'
+        help_text='URL de foto de perfil en S3'
     )
+
+
     
     # Ubicación
     city = models.CharField(
