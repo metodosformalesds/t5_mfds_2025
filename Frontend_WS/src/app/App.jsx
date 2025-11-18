@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 
 import Home from "../features/Home.jsx";
 import VerifyEmail from "../features/VerifyEmail.jsx";
+import MembershipSuccess from "../pages/MembershipSuccess";
 
 import Footer from "../features/Footer.jsx";
 import Shop from "../features/Shop.jsx";
@@ -40,6 +41,7 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/membresia/success" element={<MembershipSuccess />} />
 
           {/* Páginas públicas */}
           <Route path="/shop" element={<Shop />} />
