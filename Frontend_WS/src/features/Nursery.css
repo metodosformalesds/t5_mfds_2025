@@ -1,0 +1,78 @@
+/**
+
+ * Autor: Alex Beltran Gallegos
+
+ * Componente: Estilos Nursery
+
+ * Descripción: Estilos CSS específicos para la funcionalidad de la vista Nursery
+
+ */
+
+/* --- ESTILOS NURSERY --- */
+
+.nursery-list-area {
+    flex: 1;
+}
+
+.nursery-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-family: var(--font-title);
+    color: var(--color-forest);
+    margin-bottom: 2.5rem;
+}
+
+.shop-header {
+  text-align: left;
+  padding: 20px 60px;
+  background: #95cfa8;
+}
+
+.shop-header h1 {
+  font-size: 42px;
+  margin-bottom: 5px;
+}
+
+.shop-layout {
+  display: flex;
+  gap: 40px;
+  padding: 40px 60px;
+}
+
+.menu-item {
+  cursor: pointer;
+  transition: color 0.15s ease-in-out;
+}
+
+.menu-item:hover {
+  color: var(--color-mediumgreen);
+}
+
+.nursery-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.nursery-product-grid .product-card {
+  max-width: 240px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.nursery-product-grid .product-image {
+  height: 150px !important;
+  object-fit: cover;
+}
+
+.nursery-product-grid .buy-button {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  margin-top: auto;
+}
+.nursery-product-grid .product-card .buy-button {
+  display: block;
+  margin: 0.9rem auto 0;
+}
