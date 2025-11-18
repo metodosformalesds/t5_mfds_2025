@@ -6,6 +6,7 @@
 
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
+
 import { ShoppingCart, User } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 
@@ -67,7 +68,7 @@ export default function Navbar() {
       <ul className="nav-links">
         <li onClick={() => navigate("/")}>Home</li>
         <li onClick={() => navigate("/shop")}>Shop</li>
-        <li onClick={() => navigate("/category")}>Category</li>
+        <li onClick={() => navigate("/generalcategory")}>Category</li>
         <li onClick={() => navigate("/nursery")}>Nursery</li>
         <li onClick={() => navigate("/exchange")}>Exchange</li>
       </ul>

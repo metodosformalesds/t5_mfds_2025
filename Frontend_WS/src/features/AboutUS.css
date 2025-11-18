@@ -1,3 +1,13 @@
+/*
+  Autor: Erika Clara Frayre
+
+  Archivo: AboutUs.css
+ 
+  Descripción:
+  Los estilos correspondiente a la pagina aboutus, donde se presenta la informacion
+  de la empresa, un boton para acceder a comprar productos.
+*/
+
 .about-container {
   display: flex;
   align-items: center;

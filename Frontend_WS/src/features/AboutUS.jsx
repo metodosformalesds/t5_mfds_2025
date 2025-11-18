@@ -1,3 +1,13 @@
+
+
+/**
+  Autor: Erika Clara Frayre
+  Componente: AboutUs
+  Descripción:
+  Pagina donde se presenta la empresa y el modelo de negocio
+  para hacer promocion y mostrar ventajas.
+ */
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../api/client";

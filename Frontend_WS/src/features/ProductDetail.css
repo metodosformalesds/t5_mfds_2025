@@ -1,3 +1,12 @@
+/*
+  Autor: Erika Clara Frayre
+
+  Archivo: ProductDetail.css
+  Descripción:
+  Estilos paara mostrar un producto, sus detalles de forma legible y clara 
+  con la informacion necesaria, tags y funcion para agregar al carrito el producto.
+  */
+  
 /* ---- Reset y box sizing (útil si falta) ---- */
 * { box-sizing: border-box; }
 body { margin: 0; }
