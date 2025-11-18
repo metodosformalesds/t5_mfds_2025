@@ -1,21 +1,18 @@
-
 /* === NAVBAR STICKY === */
 .navbar {
-    
   position: sticky;
   top: 0;
   z-index: 1000;
 
   background-color: #fefefe;
   height: 80px;
-  
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   padding: 0 2rem;
-  border-bottom: 4px solid #979d99; /* línea morada */
+  border-bottom: 4px solid #979d99; 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -28,7 +25,7 @@
 }
 
 .nav-logo span {
-  color: #2B7A2B; /* verde oscuro */
+  color: #2B7A2B;
 }
 
 /* === LINKS === */
@@ -84,9 +81,83 @@
   opacity: 0.6;
 }
 
+/* ========================================= */
+/*      NUEVO — AVATAR + MENÚ DESPLEGABLE    */
+/* ========================================= */
+
+.profile-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Imagen de perfil */
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #3CA35C;
+}
+
+
+/* Avatar sin foto (inicial) */
+.profile-fallback {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #3CA35C;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Menú desplegable */
+.profile-menu {
+  position: absolute;
+  right: 0;
+  top: 55px;
+
+  width: 170px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 8px 0;
+
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.15s ease-out;
+  z-index: 2000;
+}
+
+.profile-menu p {
+  padding: 10px 15px;
+  margin: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.15s ease;
+}
+
+.profile-menu p:hover {
+  background: #f2f2f2;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 900px) {
   .nav-links {
-    display: none; /* luego podemos hacer el menú hamburguesa */
+    display: none;
   }
 }

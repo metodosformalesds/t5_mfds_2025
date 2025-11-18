@@ -1,3 +1,9 @@
+/**
+ * Autor: Carlo Lara 215661
+ * Componente: LoginSignup
+ * Descripción: Maneja el inicio de sesión y registro de nuevos usuarios, gestionando validaciones, llamadas a la API y almacenamiento de tokens y datos del usuario.
+ */
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./loginsignup.css";
@@ -75,11 +81,20 @@ export function LoginSignup() {
 
         setMessage("✅ Inicio de sesión exitoso");
         // Guardar token y disparar evento global
+        // Guardar token
         localStorage.setItem(
           "access_token",
           res.data?.cognito_tokens?.access_token
         );
+
+        // Guardar usuario (MUY IMPORTANTE)
+        if (res.data?.user) {
+          localStorage.setItem("user", JSON.stringify(res.data.user));
+        }
+
+        // Notificar cambio global (para navbar)
         window.dispatchEvent(new Event("auth-change"));
+
 
         setTimeout(() => navigate("/"), 1000); // redirige a Home
       } else {
