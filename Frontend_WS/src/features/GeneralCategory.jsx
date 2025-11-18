@@ -1,59 +1,56 @@
-import { useEffect, useState } from "react";
-import api from "../api/client";
+/**
+
+ * Autor: Erika Clara Frayre
+
+ * Componente: General category
+
+ * Descripción: Es una pagina que muestra las categorias que se encuentran en el sistema
+    para que el usuario al seleccionarla rediriga a cada categoria
+
+ */
 import { useNavigate } from "react-router-dom";
 import "./GeneralCategory.css";
 
 export default function GeneralCategory() {
-  const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
 
-  const categorySlugMap = {
-    "Plantas": "plant",
-    "Semillas": "semillas",
-    "Insumos": "insumos",
-    "Herramientas y Accesorios": "herramientas"
-  };
-
-  const categoryImages = {
-    "Plantas": "/assets/Plantas.jpg",
-    "Semillas": "/assets/semillas.png",
-    "Insumos": "/assets/Insumos.png",
-    "Herramientas y Accesorios": "/assets/Herramientes.png"
-  };
-
-  useEffect(() => {
-    api.get("/categories/")
-      .then(res => {
-        const data = Array.isArray(res.data)
-          ? res.data
-          : res.data?.results || [];
-
-        setCategories(data);
-      })
-      .catch(() => setCategories([]));
-  }, []);
-
-  const goToCategory = (name) => {
-    const slug = categorySlugMap[name];
-    if (slug) navigate(`/category/${slug}`);
-  };
+  const categories = [
+    {
+      slug: "plantas",
+      name: "Plantas",
+      image: "/assets/categories/plantas.png"
+    },
+    {
+      slug: "semillas",
+      name: "Semillas",
+      image: "/assets/categories/semillas.png"
+    },
+    {
+      slug: "insumos",
+      name: "Insumos",
+      image: "/assets/categories/insumos.png"
+    },
+    {
+      slug: "herramientas",
+      name: "Herramientas y Accesorios",
+      image: "/assets/categories/herramientas.png"
+    }
+  ];
 
   return (
-    <div className="categories-page-container">
-      <h1 className="categories-title">Categories</h1>
+    <div className="general-category-container">
+      <h1 className="gc-title">Categorías</h1>
+      <p className="gc-subtitle">Explora nuestras categorías disponibles</p>
 
-      <div className="categories-grid">
+      <div className="gc-grid">
         {categories.map(cat => (
           <div 
-            key={cat.id}
-            className="category-card"
-            onClick={() => goToCategory(cat.name)}
+            className="gc-card"
+            key={cat.slug}
+            onClick={() => navigate(`/categories/${cat.slug}`)}
           >
-            <img 
-              src={categoryImages[cat.name] || "/assets/default_cat.png"} 
-              alt={cat.name}
-            />
-            <p>{cat.name}</p>
+            <img src={cat.image} alt={cat.name} className="gc-image" />
+            <h3 className="gc-name">{cat.name}</h3>
           </div>
         ))}
       </div>
