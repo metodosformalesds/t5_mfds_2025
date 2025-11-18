@@ -3,11 +3,16 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 
 import Home from "../features/Home.jsx";
 import VerifyEmail from "../features/VerifyEmail.jsx";
+import MembershipSuccess from "../pages/MembershipSuccess";
 
 import Footer from "../features/Footer.jsx";
+import Terms from "../features/Terms.jsx";
+import About from "../features/AboutUS.jsx";
+
+import Navbar from "../features/Navbar.jsx";
+
 import Shop from "../features/Shop.jsx";
 import ShoppingCar from "../features/ShoppingCar.jsx";
-import Navbar from "../features/Navbar.jsx";
 import ProductDetail from "../features/ProductDetail.jsx";
 
 import { LoginSignup } from "../features/login-signup.jsx";
@@ -40,6 +45,7 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/membresia/success" element={<MembershipSuccess />} />
 
           {/* Páginas públicas */}
           <Route path="/shop" element={<Shop />} />
@@ -82,11 +88,16 @@ export default function App() {
 
           <Route path="/nursery" element={<Nursery />} /> 
           <Route path="/exchange" element={<Exchange />} /> 
+        {/* Footer */}
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/about" element={<About />} />
+
 
           {/* 404 */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 
+       
         <Footer />
       </ProductsProvider>
     </Router>

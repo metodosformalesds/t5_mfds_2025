@@ -1,5 +1,5 @@
 # payments/views.py
-
+from core.models import User
 import stripe
 from decimal import Decimal
 from django.conf import settings
@@ -194,6 +194,116 @@ class ConfirmPaymentView(APIView):
                 'error': 'Error al crear la orden',
                 'detail': str(e)
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class MembershipCheckoutSessionView(APIView):
+    """
+    Crea una sesión de Stripe Checkout para cobro único de membresías.
+    """
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request):
+        plan = request.data.get("plan")
+
+        # Validar plan
+        if plan not in ["basic", "pro", "premium"]:
+            return Response({"error": "Plan inválido"}, status=400)
+
+        # Precios
+        prices = {
+            "basic": 400,
+            "pro": 750,
+            "premium": 1350,
+        }
+
+        price_mxn = prices[plan]
+
+        # Crear Stripe Checkout Session
+        session = stripe.checkout.Session.create(
+            payment_method_types=["card"],
+            line_items=[{
+                "price_data": {
+                    "currency": "mxn",
+                    "product_data": {
+                        "name": f"Membresía {plan.upper()} - SproutMarket"
+                    },
+                    "unit_amount": price_mxn * 100,
+                },
+                "quantity": 1,
+            }],
+            mode="payment",
+            metadata={
+                "user_id": request.user.id,
+                "plan": plan
+            },
+            success_url="http://localhost:5173/membresia/success?session_id={CHECKOUT_SESSION_ID}",
+            cancel_url="http://localhost:5173/membresia/cancel",
+        )
+
+        return Response({"checkout_url": session.url})
+
+
+class MembershipCheckoutConfirmView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        session_id = request.query_params.get("session_id")
+
+        if not session_id:
+            return Response({"error": "No session_id provided"}, status=400)
+
+        session = stripe.checkout.Session.retrieve(session_id)
+
+        if session.payment_status != "paid":
+            return Response({"error": "El pago no está completado"}, status=400)
+
+        # Metadata
+        user_id = session.metadata.get("user_id")
+        plan = session.metadata.get("plan")
+
+        if not user_id or not plan:
+            return Response({"error": "Metadata incompleta"}, status=400)
+
+        # Usuario
+        try:
+            user = User.objects.get(id=user_id)
+        except User.DoesNotExist:
+            return Response({"error": "Usuario no encontrado"}, status=404)
+
+        # Duración
+        from django.utils import timezone
+        from datetime import timedelta
+        
+        durations = {"basic": 3, "pro": 6, "premium": 12}
+        months = durations[plan]
+
+        expires_at = timezone.now() + timedelta(days=30 * months)
+
+        # Activar la membresía
+        user.membership_type = plan
+        user.membership_is_active = True
+        user.membership_expires_at = expires_at
+        user.save()
+
+        # Registrar transacción CORRECTAMENTE
+        Transaction.objects.create(
+            user=user,
+            type="subscription",
+            amount_mxn=session.amount_total / 100,
+            stripe_id=session.payment_intent,
+            description=f"Membresía {plan.upper()}",
+            metadata={
+                "plan": plan,
+                "months": months,
+                "stripe_session_id": session_id
+            }
+        )
+
+        return Response({
+            "message": "Membresía activada correctamente",
+            "plan": plan,
+            "expires_at": expires_at.isoformat(),
+        })
+
 
 
 class OrderViewSet(viewsets.ReadOnlyModelViewSet):
