@@ -16,11 +16,11 @@ from core.authentication import CognitoClient
 # Inicializar cliente
 cognito = CognitoClient()
 
-# Probar registro (usa TU email real para recibir código)
+
 print("📧 Registrando usuario en Cognito...")
 response = cognito.sign_up(
     username='testuser2',
-    email='carlo.lm70@gmail.com',  # ← CAMBIA ESTO
+    email='carlo.lm70@gmail.com',
     password='TestPass123!',
     name='Usuario de Prueba'
 )
