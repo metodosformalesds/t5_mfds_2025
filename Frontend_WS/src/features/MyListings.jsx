@@ -1,4 +1,13 @@
-// src/features/MyListings.jsx
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: vista tipo dashboard donde aparecen todas las publicaciones creadas.
+
+ * Descripción: Este componente muestra solo los productos que pertenecen 
+al usuario actual (vendedor).
+
+ */
 import React from "react";
 import "./MyListings.css";
 import { useNavigate } from "react-router-dom";

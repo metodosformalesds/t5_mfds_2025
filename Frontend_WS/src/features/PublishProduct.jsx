@@ -3,8 +3,19 @@
  * Componente: Publish.jsx
  * Descripción: Componente para publicar productos usando la lógica original
  *              del backend y el diseño del antiguo PublishProduct.jsx.
+ * 
+ 
+* Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Vista para publicar un nuevo producto
+
+ * Descripción: En esta vista se encuentra el formulario para publicar un nuevo producto.
+
  */
 import React, { useState, useEffect } from "react";
+
+import React from "react";
+import "./PublishProduct.css";
 import { useNavigate } from "react-router-dom";
 import api from "../api/client";
 import "./PublishProduct.css";

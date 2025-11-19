@@ -2,9 +2,21 @@
  * Autor: Carlo Lara 215661
  * Componente: AccountSettings
  * Descripción: Formulario de edición del perfil del usuario; permite actualizar datos personales, ubicación y foto de perfil, sincronizando cambios con el backend.
+ * 
+ * 
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Vista de Editar la informacion del usuario 
+
+ * Descripción: Este componente muestra la página completa 
+de configuración de perfil del usuario, permitiendo actualizar 
+foto, datos personales y ubicación.
+
  */
 
 import React, { useState, useRef, useEffect } from "react";
+
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./accountsettings.css";
 import "./changepassword.css";

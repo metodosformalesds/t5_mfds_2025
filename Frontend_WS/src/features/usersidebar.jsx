@@ -1,3 +1,19 @@
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Vista deonde el usuario Menú lateral donde el usuario navega entre:
+
+  -Editar perfil
+
+  -Suscripción
+
+  -Cambiar contraseña
+
+ * Descripción: En esta vista se muestra el menú lateral de la cuenta de usuario.
+
+ */
+
 import React from "react";
 import "./usersidebar.css";
 import { Link } from "react-router-dom";

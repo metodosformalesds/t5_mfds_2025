@@ -1,4 +1,13 @@
-// src/features/hooks/useProducts.jsx
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Archivo para hacer pruebas 
+
+ * Descripción: Este archivo crea un contexto global para 
+manejar productos dentro de la aplicación sin depender de backend.
+
+ */
 import { createContext, useContext, useState } from "react";
 
 const ProductsContext = createContext(null);
