@@ -4,11 +4,10 @@ Autor: Carlo Lara 215661
 Fecha: 08/11/2025
 Descripción: Vistas del sistema de pagos, integrando Stripe para compras, órdenes, membresías y transacciones.
 """
-
 from core.models import User
 import stripe
 from decimal import Decimal
-from django.conf import settings
+
 from rest_framework import viewsets, status, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -22,7 +21,8 @@ from .serializers import (
     OrderCreateSerializer,
     TransactionSerializer
 )
-
+from django.conf import settings
+FRONTEND = settings.FRONTEND_URL.rstrip('/')
 # Configurar Stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -202,19 +202,14 @@ class ConfirmPaymentView(APIView):
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class MembershipCheckoutSessionView(APIView):
-    """
-    Crea una sesión de Stripe Checkout para cobro único de membresías.
-    """
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):
         plan = request.data.get("plan")
 
-        # Validar plan
         if plan not in ["basic", "pro", "premium"]:
             return Response({"error": "Plan inválido"}, status=400)
 
-        # Precios
         prices = {
             "basic": 400,
             "pro": 750,
@@ -223,7 +218,8 @@ class MembershipCheckoutSessionView(APIView):
 
         price_mxn = prices[plan]
 
-        # Crear Stripe Checkout Session
+        FRONTEND = settings.FRONTEND_URL.rstrip('/')   # <— CORRECCIÓN CLAVE
+
         session = stripe.checkout.Session.create(
             payment_method_types=["card"],
             line_items=[{
@@ -241,11 +237,12 @@ class MembershipCheckoutSessionView(APIView):
                 "user_id": request.user.id,
                 "plan": plan
             },
-            success_url="http://localhost:5173/membresia/success?session_id={CHECKOUT_SESSION_ID}",
-            cancel_url="http://localhost:5173/membresia/cancel",
+            success_url=f"{FRONTEND}/membresia/success?session_id={{CHECKOUT_SESSION_ID}}",
+            cancel_url=f"{FRONTEND}/membresia/cancel",
         )
 
         return Response({"checkout_url": session.url})
+
 
 
 class MembershipCheckoutConfirmView(APIView):
