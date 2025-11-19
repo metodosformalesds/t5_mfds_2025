@@ -1,3 +1,14 @@
+/**
+  Autor: Erika Clara Frayre
+
+  Componente: ProductDetail
+  Descripción:
+  Muestra los detalles de cada producto seleccionado, donde se 
+  mpueden ver los datos necesarios para que el usuario realice su compra.
+
+
+ */
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../api/client";

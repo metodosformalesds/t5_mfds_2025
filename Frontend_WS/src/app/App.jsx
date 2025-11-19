@@ -27,6 +27,9 @@ import ProductDetailEdit from "../features/ProductDetail-edit.jsx";
 import PublishProduct from "../features/PublishProduct.jsx";
 import MyListings from "../features/MyListings.jsx";
 import CategoryPage from '../features/CategoryPage';
+import GeneralCategory from '../features/GeneralCategory.jsx';
+import ProductsCategory from "../features/ProductsCategory.jsx";
+
 
 import Nursery from "../features/Nursery";
 import Exchange from "../features/Exchange";
@@ -72,7 +75,9 @@ export default function App() {
           <Route path="/productos/publicar" element={<PublishProduct />} />
           <Route path="/productos/mis-publicaciones" element={<MyListings />} />
           <Route path="/category/:categorySlug" element={<CategoryPage />} />
-
+          <Route path="/categories/:categorySlug" element={<ProductsCategory />} />
+          <Route path="/generalcategory" element={<GeneralCategory />} />
+          
           {/* DETALLE / EDICIÓN DE PRODUCTO */}
           <Route
             path="/productoeditar/:productId"
@@ -89,14 +94,17 @@ export default function App() {
 
           <Route path="/nursery" element={<Nursery />} /> 
           <Route path="/exchange" element={<Exchange />} /> 
-<<<<<<< HEAD
           <Route path="/create-exchange" element={<CreateExchange />} />
-=======
+
         {/* Footer */}
         <Route path="/terms" element={<Terms />} />
         <Route path="/about" element={<About />} />
 
->>>>>>> dev
+
+           {/* Footer */}
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/about" element={<About />} />
+
 
           {/* 404 */}
           <Route path="*" element={<Navigate to="/" replace />} />
