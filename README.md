@@ -23,3 +23,4 @@ MFDS 2025 T5
 |  **Gantt** | [Ver diagrama](https://docs.google.com/spreadsheets/d/11MPYnEdrboKAJwX_RehIO_Z622xZAN4Zpl1Z1jr1lQg/edit?gid=773634729#gid=773634729) |
 |  **Presentacion ejecutiva** | [Ver documento](https://docs.google.com/presentation/d/17RKSA4M-LO2GzBeAHPhz4y7vSI9c9-evNatpMZTPfGA/edit?slide=id.p#slide=id.p) |
 |  **Deployment AWS** | [link](https://main.dqe2ah0sr2xal.amplifyapp.com/) |
+|  **Presentacion Final** | [Ver documento](https://docs.google.com/presentation/d/1_mmc06b4yej0onYB4jub0PTk4Ww9JX6JQISxzoyHe3k/edit?slide=id.g3a5a69e7548_0_158#slide=id.g3a5a69e7548_0_158) |
