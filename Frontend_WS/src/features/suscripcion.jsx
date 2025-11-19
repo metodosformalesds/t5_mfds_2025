@@ -1,3 +1,15 @@
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Vista para poder seleccionar un plan de suscripción y proceder al pago
+
+ * Descripción: En esta vista se muestra la información sobre los 
+planes de suscripción disponibles y se permite al usuario seleccionar 
+uno para proceder al pago.
+
+ */
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./suscripcion.css";

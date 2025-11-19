@@ -1,3 +1,14 @@
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Vista del dashboard donde el usuario ve información de su cuenta.
+
+ * Descripción: En esta vista se muestra el sidebar de navegación y el contenido
+ * correspondiente a la sección activa del perfil de usuario.
+
+ */
+
 import React from "react";
 import { useParams } from "react-router-dom";
 

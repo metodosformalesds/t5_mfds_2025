@@ -1,3 +1,13 @@
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Vista para mirar el perfil de un vendedor
+
+ * Descripción: En esta vista se muestra la información del vendedor y sus productos.
+
+ */
+
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./SellerProfile.css";

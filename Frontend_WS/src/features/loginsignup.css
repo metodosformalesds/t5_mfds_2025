@@ -1,3 +1,14 @@
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Archivo que da estilos CSS para Login y Registro
+
+ * Descripción: En este archivo se encuentran los estilos CSS para 
+ las páginas de inicio de sesión y registro de usuarios.
+
+ */
+
 .auth-page {
   width: 100vw;
   height: 100vh;

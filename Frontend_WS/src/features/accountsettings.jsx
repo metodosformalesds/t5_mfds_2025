@@ -1,3 +1,15 @@
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Vista de Editar la informacion del usuario 
+
+ * Descripción: Este componente muestra la página completa 
+de configuración de perfil del usuario, permitiendo actualizar 
+foto, datos personales y ubicación.
+
+ */
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./accountsettings.css";

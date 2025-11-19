@@ -1,3 +1,14 @@
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Vista para iniciar sesión y registrarse 
+
+ * Descripción: Aqui se maneja tanto el inicio de sesión como el registro 
+de nuevos usuarios en una sola interfaz, alternando entre ambos modos.
+
+ */
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./loginsignup.css";

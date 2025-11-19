@@ -1,4 +1,13 @@
-// src/features/PublishProduct.jsx
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Vista para publicar un nuevo producto
+
+ * Descripción: En esta vista se encuentra el formulario para publicar un nuevo producto.
+
+ */
+
 import React from "react";
 import "./PublishProduct.css";
 import { useNavigate } from "react-router-dom";
