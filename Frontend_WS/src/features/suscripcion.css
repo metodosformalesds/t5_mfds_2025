@@ -73,3 +73,66 @@
 .suscripcion-btn:hover {
   background: #047857;
 }
+
+/* Contenedor horizontal */
+.suscripcion-plans-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 30px;
+  flex-wrap: wrap; /* Para que se acomode en pantallas pequeñas */
+}
+
+/* Cada tarjeta */
+.suscripcion-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 280px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+.suscripcion-card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+/* Títulos y precios */
+.suscripcion-plan-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.suscripcion-plan-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4a8b4a;
+  margin-bottom: 15px;
+}
+
+/* Lista de beneficios */
+.suscripcion-benefits {
+  text-align: left;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Botón */
+.suscripcion-btn {
+  background-color: #256d3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+
+.suscripcion-btn:hover {
+  background-color: #1f5b32;
+}

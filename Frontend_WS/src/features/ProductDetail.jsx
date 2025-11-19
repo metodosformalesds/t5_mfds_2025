@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../api/client";
-import Navbar from "./Navbar";
 import "./ProductDetail.css";
 
 
@@ -58,7 +57,7 @@ export default function ProductDetail() {
 
   return (
     <>
-      <Navbar />
+      
 
       <div className="product-detail-container">
         <p className="breadcrumb">Plant | {product.common_name}</p>
@@ -119,6 +118,7 @@ export default function ProductDetail() {
                 <button onClick={() => setQuantity(quantity + 1)}>+</button>
               </div>
             </div>
+           
 
             <button className="add-cart-btn" onClick={handleAddToCart}>
               ADD TO CART

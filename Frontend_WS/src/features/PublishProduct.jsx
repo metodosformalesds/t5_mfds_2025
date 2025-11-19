@@ -1,118 +1,179 @@
-// src/features/PublishProduct.jsx
-import React from "react";
-import "./PublishProduct.css";
+/**
+ * Autor: Carlo Lara 215661
+ * Componente: Publish.jsx
+ * Descripción: Componente para publicar productos usando la lógica original
+ *              del backend y el diseño del antiguo PublishProduct.jsx.
+ */
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useProducts } from "./hooks/useProducts.jsx";
+import api from "../api/client";
+import "./PublishProduct.css";
+import Navbar from "./Navbar";
 
-const MAX_IMAGES = 3;
-
-const PublishProduct = () => {
+export default function Publish() {
   const navigate = useNavigate();
-  const { createProduct } = useProducts();
 
-  const [form, setForm] = React.useState({
-    category: "",
-    commonName: "",
-    scientificName: "",
+  const [form, setForm] = useState({
+    category_ids: [],
+    common_name: "",
+    scientific_name: "",
     quantity: "",
-    price: "",
-    width: "",
-    height: "",
-    weight: "",
+    price_mxn: "",
+    width_cm: "",
+    height_cm: "",
+    weight_kg: "",
     description: "",
   });
 
-  const [images, setImages] = React.useState([]);
-  const [error, setError] = React.useState("");
+  const [categories, setCategories] = useState([]);
+  const [images, setImages] = useState({
+    image1: null,
+    image2: null,
+    image3: null,
+  });
+  const [imagePreviews, setImagePreviews] = useState({
+    image1: null,
+    image2: null,
+    image3: null,
+  });
 
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState({ text: "", type: "" });
+
+  // -------------------------
+  // CARGAR CATEGORÍAS
+  // -------------------------
+  useEffect(() => {
+    loadCategories();
+  }, []);
+
+  const loadCategories = async () => {
+    try {
+      const res = await api.get("/categories/");
+      setCategories(res.data.results || []);
+    } catch (err) {
+      setMessage({ text: "Error al cargar categorías", type: "error" });
+    }
+  };
+
+  // -------------------------
+  // HANDLERS
+  // -------------------------
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleImagesChange = (e) => {
-    const files = Array.from(e.target.files || []);
-    if (!files.length) return;
-
-    const newUrls = files.map((file) => URL.createObjectURL(file));
-
-    setImages((prev) => {
-      const combined = [...prev, ...newUrls];
-      if (combined.length > MAX_IMAGES) {
-        setError(`Solo puedes subir hasta ${MAX_IMAGES} imágenes.`);
-        return combined.slice(0, MAX_IMAGES);
-      }
-      setError("");
-      return combined;
-    });
+  const handleCategoryChange = (e) => {
+    const selected = Array.from(e.target.selectedOptions).map((o) =>
+      parseInt(o.value)
+    );
+    if (selected.length > 3) {
+      setMessage({ text: "Máximo 3 categorías", type: "error" });
+      return;
+    }
+    setForm({ ...form, category_ids: selected });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleImageChange = (e, field) => {
+    const file = e.target.files[0];
+    if (!file) return;
 
-    const {
-      category,
-      commonName,
-      scientificName,
-      quantity,
-      price,
-      width,
-      height,
-      weight,
-      description,
-    } = form;
-
-    if (
-      !category ||
-      !commonName ||
-      !scientificName ||
-      !quantity ||
-      !price ||
-      !width ||
-      !height ||
-      !weight ||
-      !description ||
-      images.length === 0
-    ) {
-      setError(
-        `Por favor completa todos los campos y agrega al menos una imagen.`
-      );
+    // Validaciones
+    if (!file.type.startsWith("image/")) {
+      setMessage({ text: "Solo imágenes válidas", type: "error" });
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      setMessage({ text: "Máximo 5MB por imagen", type: "error" });
       return;
     }
 
-    const mainImage = images[0];
+    setImages((prev) => ({ ...prev, [field]: file }));
 
-    createProduct({
-      title: commonName,
-      commonName,
-      scientificName,
-      quantity: Number(quantity || 0),
-      price: Number(price),
-      width: Number(width || 0),
-      height: Number(height || 0),
-      weight: Number(weight || 0),
-      description,
-      category,
-      image: mainImage,
-      images,
-    });
-
-    setForm({
-      category: "",
-      commonName: "",
-      scientificName: "",
-      quantity: "",
-      price: "",
-      width: "",
-      height: "",
-      weight: "",
-      description: "",
-    });
-    setImages([]);
-
-    navigate("/productos/mis-publicaciones");
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImagePreviews((prev) => ({ ...prev, [field]: reader.result }));
+    };
+    reader.readAsDataURL(file);
   };
 
+  const removeImage = (field) => {
+    setImages((p) => ({ ...p, [field]: null }));
+    setImagePreviews((p) => ({ ...p, [field]: null }));
+  };
+
+  // -------------------------
+  // VALIDACIÓN
+  // -------------------------
+  const validateForm = () => {
+    if (form.category_ids.length === 0)
+      return setMessageAndFalse("Selecciona una categoría");
+    if (!form.common_name.trim())
+      return setMessageAndFalse("Ingresa el nombre común");
+    if (!form.quantity || form.quantity <= 0)
+      return setMessageAndFalse("Cantidad inválida");
+    if (!form.price_mxn || form.price_mxn <= 0)
+      return setMessageAndFalse("Precio inválido");
+    if (!images.image1)
+      return setMessageAndFalse("Debe subir al menos 1 imagen");
+    return true;
+  };
+
+  const setMessageAndFalse = (txt) => {
+    setMessage({ text: txt, type: "error" });
+    return false;
+  };
+
+  // -------------------------
+  // SUBMIT
+  // -------------------------
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    setLoading(true);
+    setMessage({ text: "", type: "" });
+
+    try {
+      const fd = new FormData();
+
+      form.category_ids.forEach((id) => fd.append("category_ids", id));
+      fd.append("common_name", form.common_name);
+      if (form.scientific_name) fd.append("scientific_name", form.scientific_name);
+      fd.append("description", form.description || "");
+      fd.append("quantity", form.quantity);
+      fd.append("price_mxn", form.price_mxn);
+
+      if (form.width_cm) fd.append("width_cm", form.width_cm);
+      if (form.height_cm) fd.append("height_cm", form.height_cm);
+      if (form.weight_kg) fd.append("weight_kg", form.weight_kg);
+
+      fd.append("image1", images.image1);
+      if (images.image2) fd.append("image2", images.image2);
+      if (images.image3) fd.append("image3", images.image3);
+
+      await api.post("/products/", fd, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      setMessage({ text: "Producto publicado 🎉", type: "success" });
+      setTimeout(() => navigate("/"), 1800);
+    } catch (err) {
+      const errData = err.response?.data;
+      const msg =
+        errData?.non_field_errors?.[0] ||
+        errData?.detail ||
+        Object.values(errData || {})[0] ||
+        "Error al publicar";
+      setMessage({ text: msg, type: "error" });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // -------------------------
+  // INTERFAZ (USANDO EL DISEÑO BONITO)
+  // -------------------------
   return (
     <div className="publish-page">
       <header className="publish-header">
@@ -120,199 +181,201 @@ const PublishProduct = () => {
       </header>
 
       <form className="publish-form" onSubmit={handleSubmit}>
-        {/* Select categoría */}
+        {/* CATEGORÍAS */}
         <div className="publish-card">
           <label className="publish-select-wrapper">
-            <span className="publish-select-label">Category</span>
+            <span className="publish-select-label">Categorías (máx 3)</span>
             <select
-              name="category"
-              value={form.category}
-              onChange={handleChange}
+              name="category_ids"
+              multiple
+              size="5"
+              value={form.category_ids}
+              onChange={handleCategoryChange}
             >
-              <option value="">Seleccionar categoría</option>
-              <option value="Indoor plants">Indoor plants</option>
-              <option value="Outdoor plants">Outdoor plants</option>
-              <option value="Seeds">Seeds</option>
+              {categories.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.name}
+                </option>
+              ))}
             </select>
           </label>
         </div>
 
-        {/* FORMULARIO PRINCIPAL */}
         <div className="publish-card">
           <div className="publish-fields">
 
-            {/* Common Name */}
             <div className="publish-field full">
               <label>Common name</label>
               <input
-                name="commonName"
-                value={form.commonName}
+                name="common_name"
+                value={form.common_name}
                 onChange={handleChange}
-                placeholder="Ej. Rosa"
               />
             </div>
 
-            {/* Scientific Name */}
             <div className="publish-field full">
               <label>Scientific name</label>
               <input
-                name="scientificName"
-                value={form.scientificName}
+                name="scientific_name"
+                value={form.scientific_name}
                 onChange={handleChange}
-                placeholder="Ej. Rosa spp."
               />
             </div>
 
-            {/* Quantity */}
             <div className="publish-field full">
               <label>Quantity available</label>
               <input
                 name="quantity"
                 type="number"
-                min="0"
                 value={form.quantity}
                 onChange={handleChange}
-                placeholder="Ej. 10"
               />
             </div>
 
-            {/* Price */}
             <div className="publish-field full">
               <label>Price (MXN)</label>
               <input
-                name="price"
+                name="price_mxn"
                 type="number"
-                min="0"
-                value={form.price}
+                value={form.price_mxn}
                 onChange={handleChange}
-                placeholder="Ej. 200"
               />
             </div>
 
-            {/* Width */}
             <div className="publish-field third">
               <label>Width (cm)</label>
               <input
-                name="width"
+                name="width_cm"
                 type="number"
-                min="0"
-                value={form.width}
+                value={form.width_cm}
                 onChange={handleChange}
               />
             </div>
 
-            {/* Height */}
             <div className="publish-field third">
               <label>Height (cm)</label>
               <input
-                name="height"
+                name="height_cm"
                 type="number"
-                min="0"
-                value={form.height}
+                value={form.height_cm}
                 onChange={handleChange}
               />
             </div>
 
-            {/* Weight */}
             <div className="publish-field third">
-              <label>Weight (cm)</label>
+              <label>Weight (kg)</label>
               <input
-                name="weight"
+                name="weight_kg"
                 type="number"
-                min="0"
-                value={form.weight}
+                value={form.weight_kg}
                 onChange={handleChange}
               />
             </div>
 
-            {/* DESCRIPTION */}
+            {/* DESCRIPCIÓN */}
             <div className="publish-field full">
               <label>Description</label>
-
-              <div className="publish-description-wrapper">
-                <textarea
-                  name="description"
-                  rows="4"
-                  maxLength={500}
-                  value={form.description}
-                  onChange={handleChange}
-                  placeholder="Describe tu producto (máx. 500 caracteres)"
-                />
-
-                <div className="publish-description-toolbar">
-                  <button type="button" className="toolbar-btn">😊</button>
-                  <button type="button" className="toolbar-btn">B</button>
-                  <button type="button" className="toolbar-btn">I</button>
-                  <button type="button" className="toolbar-btn">•</button>
-                  <button type="button" className="toolbar-btn">🔗</button>
-                </div>
-
-                <div className="publish-description-footer">
-                  <span>Maximum 500 characters</span>
-                  <span>{form.description.length} / 500</span>
-                </div>
+              <textarea
+                name="description"
+                rows="4"
+                maxLength={500}
+                value={form.description}
+                onChange={handleChange}
+              />
+              <div className="publish-description-footer">
+                <span>{form.description.length} / 500</span>
               </div>
             </div>
 
-            {/* IMAGES */}
+            {/* IMÁGENES */}
             <div className="publish-field full">
-              <label>Images</label>
+              <label>Images (máx 3)</label>
+
+              {/* Botones de upload estilo PublishProduct */}
               <div className="publish-images-row">
+                <label htmlFor="image1" className="publish-add-files">
+                  📎 Imagen 1 (principal)
+                </label>
                 <input
-                  id="imagesInput"
+                  id="image1"
                   type="file"
                   accept="image/*"
-                  multiple
-                  onChange={handleImagesChange}
+                  onChange={(e) => handleImageChange(e, "image1")}
                   className="publish-images-input"
                 />
-                <label htmlFor="imagesInput" className="publish-add-files">
-                  <span className="publish-add-icon">📎</span>
-                  <span>Add files</span>
-                </label>
 
-                {images.length > 0 && (
-                  <span className="publish-files-count">
-                    {images.length} / {MAX_IMAGES} imágenes
-                  </span>
-                )}
+                <label htmlFor="image2" className="publish-add-files">
+                  📎 Imagen 2
+                </label>
+                <input
+                  id="image2"
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => handleImageChange(e, "image2")}
+                  className="publish-images-input"
+                />
+
+                <label htmlFor="image3" className="publish-add-files">
+                  📎 Imagen 3
+                </label>
+                <input
+                  id="image3"
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) =>
+                    handleImageChange(e, "image3")
+                  }
+                  className="publish-images-input"
+                />
               </div>
 
-              {images.length > 0 && (
-                <div className="publish-images-preview">
-                  {images.map((src, idx) => (
-                    <div key={idx} className="publish-thumb">
-                      <img src={src} alt={`Imagen ${idx + 1}`} />
+              {/* PREVIEW */}
+              <div className="publish-images-preview">
+                {Object.entries(imagePreviews)
+                  .filter(([_, v]) => v)
+                  .map(([key, src], idx) => (
+                    <div key={key} className="publish-thumb">
+                      <img src={src} alt="" />
                       <span className="publish-thumb-label">
                         {idx === 0 ? "Portada" : `Imagen ${idx + 1}`}
                       </span>
+                      <button
+                        type="button"
+                        className="btn-remove-image"
+                        onClick={() => removeImage(key)}
+                      >
+                        ✕
+                      </button>
                     </div>
                   ))}
-                </div>
-              )}
+              </div>
             </div>
-
           </div>
 
-          {/* FOOTER DEL FORMULARIO */}
+          {/* FOOTER */}
           <div className="publish-footer">
-            {error && <div className="publish-error">{error}</div>}
+            {message.text && (
+              <div
+                className={`publish-error ${
+                  message.type === "success" ? "success" : ""
+                }`}
+              >
+                {message.text}
+              </div>
+            )}
 
-            <hr className="publish-divider" />
-
-            <button type="submit" className="publish-button">Publish Product</button>
+            <button type="submit" className="publish-button">
+              {loading ? "Publicando..." : "Publish Product"}
+            </button>
 
             <p className="publish-terms">
               By sending the request you confirm that you accept our{" "}
-              <a href="#" className="publish-link">Terms of Service</a> and{" "}
-              <a href="#" className="publish-link">Privacy Policy</a>.
+              <a href="#">Terms of Service</a> and{" "}
+              <a href="#">Privacy Policy</a>.
             </p>
           </div>
-
         </div>
       </form>
     </div>
   );
-};
-
-export default PublishProduct;
+}

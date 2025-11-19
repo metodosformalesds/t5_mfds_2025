@@ -1,5 +1,4 @@
 # payments/urls.py
-
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import (
@@ -8,7 +7,9 @@ from .views import (
     OrderViewSet,
     SalesViewSet,
     TransactionViewSet,
-    BalanceView
+    BalanceView,
+    MembershipCheckoutSessionView,
+    MembershipCheckoutConfirmView,
 )
 
 app_name = 'payments'
@@ -23,6 +24,9 @@ urlpatterns = [
     # Checkout y confirmación
     path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('confirm/', ConfirmPaymentView.as_view(), name='confirm-payment'),
+    path("membership/checkout/session/", MembershipCheckoutSessionView.as_view()),
+    path("membership/checkout/confirm/", MembershipCheckoutConfirmView.as_view()),
+
     
     # Balance
     path('balance/', BalanceView.as_view(), name='balance'),
