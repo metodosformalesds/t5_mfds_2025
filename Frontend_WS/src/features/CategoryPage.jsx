@@ -1,3 +1,9 @@
+/**
+ * Autor: Carlo Lara 215661
+ * Componente: CategoryPage
+ * Descripción: Muestra productos filtrados por categoría y permite refinar la búsqueda.
+ */
+
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "../api/client";

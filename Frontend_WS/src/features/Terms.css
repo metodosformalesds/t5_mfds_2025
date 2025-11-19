@@ -1,3 +1,11 @@
+/*
+
+  Autor: Erika Clara Frayre
+  Archivo: Terms.css
+  Descripción:
+  Estilos para la página de Términos y Condiciones.
+  Muestra el texto legal de manera clara y legible.
+*/
 .terms-page-container {
   background: #e8f3e8;
   min-height: 100vh;

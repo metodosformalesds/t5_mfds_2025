@@ -1,4 +1,9 @@
 # exchanges/models.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 05/11/2025
+Descripción: Modelos para publicaciones de intercambio de plantas y ofertas, incluyendo reglas de negocio, validaciones y lógica derivada.
+"""
 
 from django.db import models
 from django.conf import settings

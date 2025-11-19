@@ -1,4 +1,9 @@
 # products/urls.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 06/11/2025
+Descripción: Rutas del módulo de productos, incluyendo ViewSets y endpoints personalizados del carrito.
+"""
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter

@@ -1,4 +1,10 @@
 # payments/urls.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 08/11/2025
+Descripción: Rutas del módulo de pagos, incluyendo checkout, confirmación, membresías y transacciones.
+"""
+
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import (

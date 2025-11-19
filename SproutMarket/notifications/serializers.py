@@ -1,4 +1,9 @@
 # notifications/serializers.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 07/11/2025
+Descripción: Serializadores para listar, detallar y marcar notificaciones como leídas.
+"""
 
 from rest_framework import serializers
 from .models import Notification

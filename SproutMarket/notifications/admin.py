@@ -1,4 +1,9 @@
 # notifications/admin.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 07/11/2025
+Descripción: Configuración del panel de administración para la gestión de notificaciones.
+"""
 
 from django.contrib import admin
 from django.utils.html import format_html

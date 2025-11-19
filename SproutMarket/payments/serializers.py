@@ -1,4 +1,9 @@
 # payments/serializers.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 08/11/2025
+Descripción: Serializadores para checkout, creación de órdenes, transacciones y PaymentIntents usando Stripe.
+"""
 
 from rest_framework import serializers
 from decimal import Decimal

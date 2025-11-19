@@ -1,4 +1,9 @@
 # core/authentication.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 14/11/2025
+Descripción: Cliente de integración con AWS Cognito y funciones de autenticación del usuario.
+"""
 
 import boto3
 from django.conf import settings

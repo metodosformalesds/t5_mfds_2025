@@ -1,4 +1,9 @@
 # exchanges/serializers.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 05/11/2025
+Descripción: Serializadores para gestión de intercambios y ofertas, validación de pagos con Stripe, subida de imágenes y manejo de lógica interna.
+"""
 
 from rest_framework import serializers
 from decimal import Decimal

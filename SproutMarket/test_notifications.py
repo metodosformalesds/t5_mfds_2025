@@ -1,8 +1,10 @@
 # test_ses_sns_notifications.py
 """
-Script para probar el envío REAL de notificaciones con SES y SNS
-Ejecutar: python test_ses_sns_notifications.py
+Autor: Carlo Lara 215661
+Fecha: 09/11/2025
+Descripción: Pruebas completas de AWS SES y SNS incluyendo envío real de correos, notificaciones push y validación de configuración.
 """
+
 
 import os
 import django

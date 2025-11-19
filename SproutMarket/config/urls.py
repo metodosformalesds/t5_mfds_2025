@@ -1,4 +1,10 @@
 """
+Autor: Carlo Lara 215661
+Componente: urls.py
+Descripción: Define las rutas principales del backend, integrando los módulos de autenticación, productos, pagos, intercambios, notificaciones y suscripciones.
+"""
+
+"""
 URL configuration for config project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -14,6 +20,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 
 from django.contrib import admin
 from django.urls import path, include

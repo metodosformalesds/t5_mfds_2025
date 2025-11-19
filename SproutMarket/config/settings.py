@@ -1,6 +1,9 @@
 """
-Django settings for SproutMarket project.
+Autor: Carlo Lara 215661
+Componente: settings.py
+Descripción: Configuración principal del proyecto Django, incluyendo apps, base de datos, almacenamiento, autenticación, CORS, Stripe y servicios AWS.
 """
+
 
 import os
 from pathlib import Path

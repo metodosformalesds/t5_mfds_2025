@@ -1,4 +1,10 @@
 # test_full_checkout.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 09/11/2025
+Descripción: Test de checkout completo: carrito, cálculo de totales, creación de PaymentIntent y simulación del proceso de compra.
+"""
+
 import os
 import django
 

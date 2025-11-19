@@ -1,5 +1,11 @@
 # test_exchanges_simple.py
 # Versión simplificada sin confirmación de pago real
+"""
+Autor: Carlo Lara 215661
+Fecha: 09/11/2025
+Descripción: Prueba simplificada de creación de intercambios sin confirmar pagos reales, validando límite de ofertas y flujo básico.
+"""
+
 import os
 import django
 

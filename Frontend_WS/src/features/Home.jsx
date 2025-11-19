@@ -1,3 +1,9 @@
+/**
+ * Autor: Carlo Lara 215661
+ * Componente: Home
+ * Descripción: Página principal con categorías, productos destacados y secciones promocionales.
+ */
+
 import { useEffect, useState } from "react";
 import api from "../api/client";
 import "./home.css";

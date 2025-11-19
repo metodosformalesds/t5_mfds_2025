@@ -1,4 +1,9 @@
 # products/serializers.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 06/11/2025
+Descripción: Serializadores para categorías, productos, carritos y validación de imágenes con S3.
+"""
 
 from rest_framework import serializers
 from django.contrib.auth import get_user_model

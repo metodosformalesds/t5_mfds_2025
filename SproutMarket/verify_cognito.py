@@ -1,4 +1,10 @@
 # verify_cognito.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 09/11/2025
+Descripción: Script para verificar la cuenta de AWS Cognito ingresando el código enviado por correo.
+"""
+
 import os
 import django
 

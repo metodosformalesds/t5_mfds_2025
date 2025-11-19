@@ -1,4 +1,9 @@
 # exchanges/admin.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 05/11/2025
+Descripción: Configuración del panel de administración para las publicaciones de intercambio y sus ofertas.
+"""
 
 from django.contrib import admin
 from django.utils.html import format_html

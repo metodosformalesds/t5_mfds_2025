@@ -1,4 +1,9 @@
 # subscriptions/models.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 06/11/2025
+Descripción: Modelo de suscripciones premium, incluyendo estado, periodos, metadatos y relación con Stripe.
+"""
 
 from django.db import models
 from django.conf import settings

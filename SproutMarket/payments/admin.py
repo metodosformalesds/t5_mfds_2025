@@ -1,4 +1,9 @@
 # payments/admin.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 08/11/2025
+Descripción: Configuración del panel de administración para visualizar y gestionar transacciones financieras.
+"""
 
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _

@@ -1,4 +1,9 @@
 # core/serializers.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 04/11/2025
+Descripción: Serializadores para registro, login, perfil, verificación y actualización de usuario.
+"""
 
 from rest_framework import serializers
 from django.contrib.auth import get_user_model

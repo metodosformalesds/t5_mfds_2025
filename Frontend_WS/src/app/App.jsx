@@ -1,4 +1,10 @@
 // src/App.jsx
+/**
+ * Autor: Carlo Lara 215661, Eibram, Erika
+ * Componente: App
+ * Descripción: Configura las rutas principales del frontend y envuelve la aplicación completa.
+ */
+
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "../features/Home.jsx";
@@ -27,9 +33,13 @@ import ProductDetailEdit from "../features/ProductDetail-edit.jsx";
 import PublishProduct from "../features/PublishProduct.jsx";
 import MyListings from "../features/MyListings.jsx";
 import CategoryPage from '../features/CategoryPage';
+import GeneralCategory from '../features/GeneralCategory.jsx';
+import ProductsCategory from "../features/ProductsCategory.jsx";
+
 
 import Nursery from "../features/Nursery";
 import Exchange from "../features/Exchange";
+import CreateExchange from "../features/CreateExchange.jsx";  
 
 
 import { ProductsProvider } from "../features/hooks/useProducts.jsx";
@@ -71,7 +81,9 @@ export default function App() {
           <Route path="/productos/publicar" element={<PublishProduct />} />
           <Route path="/productos/mis-publicaciones" element={<MyListings />} />
           <Route path="/category/:categorySlug" element={<CategoryPage />} />
-
+          <Route path="/categories/:categorySlug" element={<ProductsCategory />} />
+          <Route path="/generalcategory" element={<GeneralCategory />} />
+          
           {/* DETALLE / EDICIÓN DE PRODUCTO */}
           <Route
             path="/productoeditar/:productId"
@@ -88,9 +100,16 @@ export default function App() {
 
           <Route path="/nursery" element={<Nursery />} /> 
           <Route path="/exchange" element={<Exchange />} /> 
+          <Route path="/create-exchange" element={<CreateExchange />} />
+
         {/* Footer */}
         <Route path="/terms" element={<Terms />} />
         <Route path="/about" element={<About />} />
+
+
+           {/* Footer */}
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/about" element={<About />} />
 
 
           {/* 404 */}

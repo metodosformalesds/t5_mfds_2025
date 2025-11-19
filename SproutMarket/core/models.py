@@ -1,4 +1,10 @@
 # core/models.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 18/11/2025
+Descripción: Modelos principales del sistema, incluyendo el User extendido y categorías.
+"""
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _

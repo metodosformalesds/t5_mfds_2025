@@ -1,4 +1,9 @@
 # notifications/views.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 07/11/2025
+Descripción: ViewSet para gestión completa de notificaciones del usuario, con acciones personalizadas.
+"""
 
 from rest_framework import viewsets, status, permissions, filters
 from rest_framework.decorators import action

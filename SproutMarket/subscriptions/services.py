@@ -1,4 +1,9 @@
 # subscriptions/services.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 06/11/2025
+Descripción: Lógica principal para integración de suscripciones con Stripe, incluyendo creación, cancelación, reactivación y manejo de webhooks.
+"""
 
 import stripe
 from django.conf import settings

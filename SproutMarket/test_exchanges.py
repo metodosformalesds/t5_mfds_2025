@@ -1,6 +1,11 @@
 # test_exchanges.py
 import os
 import django
+"""
+Autor: Carlo Lara 215661
+Fecha: 09/11/2025
+Descripción: Pruebas completas del módulo de intercambios incluyendo pago real con Stripe, creación de exchange, ofertas y aceptación.
+"""
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 django.setup()

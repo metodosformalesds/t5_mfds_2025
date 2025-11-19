@@ -1,4 +1,9 @@
 # core/admin.py
+"""
+Autor: Carlo Lara 215661
+Fecha: 03/11/2025
+Descripción: Configuración del panel de administración para los modelos User y Category.
+"""
 
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
