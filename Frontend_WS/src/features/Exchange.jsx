@@ -11,6 +11,7 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import Sidebar from "./Sidebar.jsx";
 import ProductCard from "./ProductCard.jsx";
+import { Link } from "react-router-dom";
 import './Exchange.css';
 
 const Exchange = () => {
@@ -26,6 +27,11 @@ const Exchange = () => {
         <Sidebar />
         <div className="exchange-product-area">
           <div className="exchange-header-row">
+            <Link to="/create-exchange">
+                <button className="create-exchange-button">
+                    + Create Exchange
+                </button>
+            </Link>
             <select className="sort-selector">
               <option>Popular</option>
               <option>Low Price</option>

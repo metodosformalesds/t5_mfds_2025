@@ -4,7 +4,7 @@
 
  * Componente: Terms and conditions
 
- * Descripción: Muestra los terminos y condiciones del negocio
+ * Descripción: Muestra los terminos y condiciones del negocio, con el objetivo de darle a conecer al usuario las normas del negocio
 
  */
 import { useEffect, useState } from "react";

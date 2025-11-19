@@ -1,0 +1,119 @@
+/**
+
+ * Autor: Erika Clara Frayre
+
+ * Componente: Products category.css
+
+ * Descripción: Es una la seccion de los estilos de la pagina para  que muestre los productos de la categoria seleccionada
+
+ */
+.cat-page-container {
+  width: 100%;
+  padding: 60px 40px;
+}
+
+.cat-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.btn-back {
+  padding: 8px 16px;
+  background: none;
+  border: 2px solid #89c56b;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-back:hover {
+  background: #89c56b;
+  color: white;
+}
+
+.cat-title {
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.cat-desc {
+  margin-top: 10px;
+  color: #555;
+}
+
+.cat-count {
+  margin-top: 8px;
+  display: block;
+  font-size: 17px;
+  color: #89c56b;
+}
+
+.cat-products-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.product-card {
+  padding: 18px;
+  background: #fafafa;
+  border-radius: 16px;
+  transition: 0.25s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.product-image {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.product-name {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.price {
+  margin-top: 6px;
+  font-size: 17px;
+  color: #2f7a32;
+}
+
+.buy-btn {
+  margin-top: 14px;
+  width: 100%;
+  padding: 10px 0;
+  background: #89c56b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.buy-btn:hover {
+  background: #75b259;
+}
+
+@media (max-width: 900px) {
+  .cat-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .cat-products-grid {
+    grid-template-columns: 1fr;
+  }
+}
