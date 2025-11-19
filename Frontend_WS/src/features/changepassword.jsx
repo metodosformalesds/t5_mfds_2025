@@ -1,4 +1,16 @@
-// src/features/perfil/components/changepassword.jsx
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Componente para permitir al usuario: cambiar su contraseña, 
+actualizar su correo y eliminar su cuenta. 
+
+ * Descripción: Este componente nos ofrece una interfaz para que el usuario pueda
+ modificar su información sensible como la contraseña y el correo electrónico, 
+así como la opción de eliminar su cuenta de forma permanente.
+
+ */
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./changepassword.css";

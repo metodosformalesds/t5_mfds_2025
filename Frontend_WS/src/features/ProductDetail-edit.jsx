@@ -1,4 +1,13 @@
-// src/features/ProductDetail-edit.jsx
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: vista para editar detalles de un producto publicado o borrarlo
+
+ * Descripción: Este es el módulo más técnico: el editor donde se 
+puede cambiar precio, categoría, descripción e imágenes.
+
+ */
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./ProductDetail-edit.css";

@@ -1,3 +1,13 @@
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Vista deonde el usuario ve información de su cuenta.
+
+ * Descripción: En esta vista se muestra la información del perfil de usuario.
+
+ */
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./UserProfile.css";

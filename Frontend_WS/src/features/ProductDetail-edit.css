@@ -1,7 +1,15 @@
-/* src/features/products/pages/ProductDetail.css */
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: Archivo de estilos CSS para editar detalles de un producto
+
+ * Descripción: En este archivo se definen los estilos para la vista de edición
+
+ */
 
 .detail-page {
-  max-width: 1200px; /* 🔥 un poco más ancho general */
+  max-width: 1200px; 
   margin: 0 auto;
   color: #111827;
 }
@@ -19,8 +27,8 @@
 
 .detail-layout {
   display: grid;
-  grid-template-columns: 460px minmax(0, 1fr); /* 🔥 antes 520px */
-  gap: 28px; /* un poco más de respiro */
+  grid-template-columns: 460px minmax(0, 1fr); 
+  gap: 28px;
 }
 
 .detail-image-column {

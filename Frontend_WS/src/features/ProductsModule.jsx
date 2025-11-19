@@ -1,4 +1,14 @@
-// src/features/ProductsModule.jsx
+/**
+
+ * Autor: Eibram Alexis Alvarado Orta
+
+ * Componente: sub-router exclusivo para la sección /productos.
+
+ * Descripción: Aqui se definen las rutas hijas de /productos, como
+/publicar y /mis-publicaciones.
+
+ */
+
 import { Routes, Route, Navigate } from "react-router-dom";
 import PublishProduct from "./PublishProduct.jsx";
 import MyListings from "./MyListings.jsx";
